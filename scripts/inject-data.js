@@ -129,8 +129,8 @@ function docProfile(d, fallbackImg) {
     <div>
       <h2 style="font-family:'Noto Serif KR',serif; font-weight:600; font-size:clamp(26px,3.4vw,32px); letter-spacing:-0.02em; color:#1A1A1A; margin:0 0 6px;">${esc(d.name)}${roleSpan}</h2>
       <p style="font-size:15px; color:#8A8A8A; margin:0 0 28px;">${esc(d.title)}</p>
-${d.personal_message ? `      <p style="font-family:'Playfair Display',serif; font-style:italic; font-size:17px; color:var(--accent); margin:0 0 12px;">&ldquo;${esc(d.personal_message)}&rdquo;</p>\n` : ""}${d.short_intro ? `      <p style="font-size:15px; line-height:1.75; color:#4A4A4A; margin:0 0 26px;">${esc(d.short_intro)}</p>\n` : ""}      <p style="font-size:13px; letter-spacing:0.14em; color:#8A8A8A; margin:0 0 8px;">담당 진료</p>
-      <p style="font-family:'Noto Serif KR',serif; font-size:20px; line-height:1.5; letter-spacing:-0.02em; color:#1A1A1A; margin:0 0 22px;">${esc(specs)}</p>
+${d.personal_message ? `      <p style="font-family:'Playfair Display',serif; font-style:italic; font-size:17px; color:var(--accent); margin:0 0 12px;">&ldquo;${esc(d.personal_message)}&rdquo;</p>\n` : ""}${d.short_intro ? `      <p style="font-size:15px; line-height:1.75; color:#4A4A4A; margin:0 0 26px;">${esc(d.short_intro)}</p>\n` : ""}      ${specs ? `<p style="font-size:13px; letter-spacing:0.14em; color:#8A8A8A; margin:0 0 8px;">담당 진료</p>
+      <p style="font-family:'Noto Serif KR',serif; font-size:20px; line-height:1.5; letter-spacing:-0.02em; color:#1A1A1A; margin:0 0 22px;">${esc(specs)}</p>` : ""}
       <p style="font-family:'Noto Serif KR',serif; font-weight:500; font-size:15px; letter-spacing:0.02em; color:var(--accent); margin:0 0 14px;">주요경력 및 학력</p>
       <ul class="bd-cred">
 ${lis}
