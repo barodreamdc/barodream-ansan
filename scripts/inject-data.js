@@ -40,15 +40,25 @@ function reviewCard(r) {
 
 function baCard(r) {
   const meta = [r.description, r.duration ? `치료기간 ${r.duration}` : ""].filter(Boolean).join(" · ");
-  return `      <div style="border:1px solid var(--line); border-radius:6px; overflow:hidden;">
-        <div style="display:grid; grid-template-columns:1fr 1fr;">
-          <img src="${esc(r.before_image_url)}" alt="치료 전" style="width:100%; height:220px; object-fit:cover;">
-          <img src="${esc(r.after_image_url)}" alt="치료 후" style="width:100%; height:220px; object-fit:cover;">
+  const name = esc(r.treatment_name);
+  // 치료 전 이미지는 CSS 블러(원본 파일은 그대로). 래퍼 overflow:hidden + scale(1.05)로 블러 경계 정리.
+  const box = "position:relative; overflow:hidden; border-radius:4px; height:220px; background:#f0f0f0;";
+  const lbl = "position:absolute; left:8px; bottom:8px; background:rgba(0,0,0,.6); color:#fff; font-size:12px; padding:3px 9px; border-radius:3px; letter-spacing:-0.01em;";
+  return `      <div style="border:1px solid var(--line); border-radius:8px; padding:16px;">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+          <div style="${box}">
+            <img src="${esc(r.before_image_url)}" alt="${name} 치료 전(블러 처리)" style="width:100%; height:100%; object-fit:contain; filter:blur(14px); transform:scale(1.05);">
+            <span style="${lbl}">치료 전</span>
+          </div>
+          <div style="${box}">
+            <img src="${esc(r.after_image_url)}" alt="${name} 치료 후" style="width:100%; height:100%; object-fit:contain;">
+            <span style="${lbl}">치료 후</span>
+          </div>
         </div>
-        <div style="padding:28px;">
-          <p style="font-size:12px; letter-spacing:0.08em; color:var(--accent); margin:0 0 10px;">${esc(r.treatment_category)}</p>
-          <h3 style="font-family:'Noto Serif KR',serif; font-weight:500; font-size:19px; line-height:1.5; letter-spacing:-0.02em; color:#1A1A1A; margin:0 0 10px;">${esc(r.treatment_name)}</h3>
-          <p style="font-size:14px; line-height:1.6; color:#8A8A8A; margin:0;">${esc(meta)}</p>
+        <div style="padding:12px 2px 2px;">
+          <p style="font-size:12px; letter-spacing:0.08em; color:var(--accent); margin:0 0 8px;">${esc(r.treatment_category)}</p>
+          <h3 style="font-family:'Noto Serif KR',serif; font-weight:500; font-size:18px; line-height:1.5; letter-spacing:-0.02em; color:#1A1A1A; margin:0 0 6px;">${name}</h3>
+          <p style="font-size:13px; line-height:1.6; color:#8A8A8A; margin:0;">${esc(meta)}</p>
         </div>
       </div>`;
 }

@@ -94,7 +94,7 @@
     .bd-mm-toggle span{ display:block; height:2px; width:100%; background:#1A1A1A; border-radius:2px; }
     .bd-hero-hide-m{ display:none!important; }
     .bd-define-img{ height:auto!important; }
-    .bd-cards2{ grid-template-columns:1fr!important; }
+    .bd-cards2{ grid-template-columns:1fr!important; gap:24px!important; }
   }
   body.bd-mm-lock{ overflow:hidden; }
   .bd-mm[hidden]{ display:none!important; }
@@ -277,15 +277,21 @@
     <!-- 작성 원칙: 환자의 1인칭 후기(예: "정말 만족했어요")가 아니라, 원장 시점의 객관적 진료 기록으로 작성합니다. -->
     <div class="bd-cards2" style="display:grid; grid-template-columns:repeat(2,1fr); gap:32px;">
       <!-- BEFORE_AFTER:START — 관리자 전후사진이 이 사이에 자동 삽입됩니다(patternB). 아래는 기본 예시. -->
-      <div style="border:1px solid var(--line); border-radius:6px; overflow:hidden;">
-        <div style="display:grid; grid-template-columns:1fr 1fr;">
-          <img src="https://res.cloudinary.com/rjoebmnd/image/upload/v1788230893/barodream-ansan/before-after/j9esgcek2uwws2vee6mw.png" alt="치료 전" style="width:100%; height:220px; object-fit:cover;">
-          <img src="https://res.cloudinary.com/rjoebmnd/image/upload/v1788230908/barodream-ansan/before-after/udetkjbfpyxsm2vmypkm.png" alt="치료 후" style="width:100%; height:220px; object-fit:cover;">
+      <div style="border:1px solid var(--line); border-radius:8px; padding:16px;">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+          <div style="position:relative; overflow:hidden; border-radius:4px; height:220px; background:#f0f0f0;">
+            <img src="https://res.cloudinary.com/rjoebmnd/image/upload/v1788230893/barodream-ansan/before-after/j9esgcek2uwws2vee6mw.png" alt="임플란트 치료 전(블러 처리)" style="width:100%; height:100%; object-fit:contain; filter:blur(14px); transform:scale(1.05);">
+            <span style="position:absolute; left:8px; bottom:8px; background:rgba(0,0,0,.6); color:#fff; font-size:12px; padding:3px 9px; border-radius:3px; letter-spacing:-0.01em;">치료 전</span>
+          </div>
+          <div style="position:relative; overflow:hidden; border-radius:4px; height:220px; background:#f0f0f0;">
+            <img src="https://res.cloudinary.com/rjoebmnd/image/upload/v1788230908/barodream-ansan/before-after/udetkjbfpyxsm2vmypkm.png" alt="임플란트 치료 후" style="width:100%; height:100%; object-fit:contain;">
+            <span style="position:absolute; left:8px; bottom:8px; background:rgba(0,0,0,.6); color:#fff; font-size:12px; padding:3px 9px; border-radius:3px; letter-spacing:-0.01em;">치료 후</span>
+          </div>
         </div>
-        <div style="padding:28px;">
-          <p style="font-size:12px; letter-spacing:0.08em; color:var(--accent); margin:0 0 10px;">임플란트</p>
-          <h3 style="font-family:'Noto Serif KR',serif; font-weight:500; font-size:19px; line-height:1.5; letter-spacing:-0.02em; color:#1A1A1A; margin:0 0 10px;">임플란트</h3>
-          <p style="font-size:14px; line-height:1.6; color:#8A8A8A; margin:0;"></p>
+        <div style="padding:12px 2px 2px;">
+          <p style="font-size:12px; letter-spacing:0.08em; color:var(--accent); margin:0 0 8px;">임플란트</p>
+          <h3 style="font-family:'Noto Serif KR',serif; font-weight:500; font-size:18px; line-height:1.5; letter-spacing:-0.02em; color:#1A1A1A; margin:0 0 6px;">임플란트</h3>
+          <p style="font-size:13px; line-height:1.6; color:#8A8A8A; margin:0;"></p>
         </div>
       </div>
 
@@ -531,7 +537,7 @@
     <!-- BEFORE_AFTER:END -->
 
     </div>
-    <p style="font-size:13px; color:#8A8A8A; margin:36px 0 0; text-align:center;">※ 모든 치료 사례는 실제 진행한 진료를 바탕으로 하며, 치료 결과는 환자 개인의 상태에 따라 차이가 있을 수 있습니다.</p>
+    <p style="font-size:13px; color:#8A8A8A; margin:36px 0 0; text-align:center;">※ 치료 결과는 개인의 상태에 따라 다를 수 있으며, 게시된 사진은 환자 동의 하에 사용되었습니다.</p>
   </div>
 </section>
 
