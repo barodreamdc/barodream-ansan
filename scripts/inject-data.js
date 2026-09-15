@@ -398,7 +398,13 @@ async function injectBeforeAfter() {
     if (!m) continue;
     const slug = m[1];
     const picks = rows.filter((r) => r.page_slug === slug).slice(0, 3);
-    html = html.replace(/<!-- BA:START -->[\s\S]*?<!-- BA:END -->/, `<!-- BA:START -->\n${picks.map(baCardSmall).join("\n")}\n      <!-- BA:END -->`);
+    // 1건=가운데 720px, 2건 이상=2열
+    const grid = picks.length === 1
+      ? `      <div style="max-width:720px; margin:0 auto;">\n${baCardSmall(picks[0])}\n      </div>`
+      : `      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; max-width:940px; margin:0 auto;">\n${picks.map(baCardSmall).join("\n")}\n      </div>`;
+    const moreLink = `      <div style="text-align:center; margin:34px 0 0;"><a href="cases.html" style="font-size:14px; color:var(--accent); text-decoration:none; border-bottom:1px solid var(--accent); padding-bottom:2px;">전체 치료사례 보기 →</a></div>`;
+    const fill = picks.length ? grid + "\n" + moreLink : "";
+    html = html.replace(/<!-- BA:START -->[\s\S]*?<!-- BA:END -->/, `<!-- BA:START -->\n${fill}\n      <!-- BA:END -->`);
     html = picks.length
       ? html.replace(/<section data-ba-slug="([^"]+)" hidden/, '<section data-ba-slug="$1"')
       : html.replace(/<section data-ba-slug="([^"]+)"(?! hidden)/, '<section data-ba-slug="$1" hidden');
