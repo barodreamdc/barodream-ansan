@@ -367,24 +367,44 @@ async function injectDoctors() {
   }
 }
 
+// 진료 페이지 하단 3열 소형 카드(치료 전 CSS 블러 + 라벨)
+function baCardSmall(r) {
+  const cap = esc(r.description || r.treatment_name || "");
+  const box = "position:relative; overflow:hidden; border-radius:3px; height:200px; background:#f0f0f0;";
+  const lbl = "position:absolute; left:8px; top:8px; font-family:'Noto Serif KR',serif; font-size:13px; color:#fff; padding:3px 9px; border-radius:2px;";
+  const nm = esc(r.treatment_name);
+  return `      <div><div style="display:grid; grid-template-columns:1fr 1fr; gap:6px;"><div style="${box}"><img src="${esc(r.before_image_url)}" alt="${nm} 치료 전(블러 처리)" style="width:100%; height:100%; object-fit:cover; filter:blur(14px); transform:scale(1.05);"><span style="${lbl} background:rgba(0,0,0,.55);">치료 전</span></div><div style="${box}"><img src="${esc(r.after_image_url)}" alt="${nm} 치료 후" style="width:100%; height:100%; object-fit:cover;"><span style="${lbl} background:var(--accent);">치료 후</span></div></div><p style="font-size:14px; color:#4A4A4A; margin:16px 0 0;">${cap}</p></div>`;
+}
+
 async function injectBeforeAfter() {
-  const data = await rest(
-    "before_after?select=treatment_name,treatment_category,before_image_url,after_image_url,description,duration,display_order" +
+  const rows = (await rest(
+    "before_after?select=treatment_name,treatment_category,before_image_url,after_image_url,description,duration,page_slug,display_order" +
       "&is_active=eq.true&consent_signed=eq.true&order=display_order.asc",
-  );
-  if (!data || !data.length) {
+  )) || [];
+
+  // 1) cases.html — 전체 목록
+  if (rows.length) {
+    const html = fs.readFileSync("cases.html", "utf-8");
+    const out = replaceBetween(html, "<!-- BEFORE_AFTER:START[^>]*-->", "<!-- BEFORE_AFTER:END -->", rows.map(baCard).join("\n\n"));
+    if (out) { fs.writeFileSync("cases.html", out); console.log(`cases.html 전후사진 ${rows.length}건`); }
+  } else {
     console.log("전후사진(동의·활성) 없음 — cases.html 기본값 유지");
-    return;
   }
-  let html = fs.readFileSync("cases.html", "utf-8");
-  const cards = data.map(baCard).join("\n\n");
-  const out = replaceBetween(html, "<!-- BEFORE_AFTER:START[^>]*-->", "<!-- BEFORE_AFTER:END -->", cards);
-  if (!out) {
-    console.log("cases.html에 BEFORE_AFTER 마커 없음 — 스킵");
-    return;
+
+  // 2) 진료 페이지 — data-ba-slug 로 필터(최대 3), 없으면 섹션 숨김(hidden)
+  for (const f of fs.readdirSync(".").filter((x) => x.endsWith(".html"))) {
+    let html = fs.readFileSync(f, "utf-8");
+    const m = html.match(/<section data-ba-slug="([^"]+)"/);
+    if (!m) continue;
+    const slug = m[1];
+    const picks = rows.filter((r) => r.page_slug === slug).slice(0, 3);
+    html = html.replace(/<!-- BA:START -->[\s\S]*?<!-- BA:END -->/, `<!-- BA:START -->\n${picks.map(baCardSmall).join("\n")}\n      <!-- BA:END -->`);
+    html = picks.length
+      ? html.replace(/<section data-ba-slug="([^"]+)" hidden/, '<section data-ba-slug="$1"')
+      : html.replace(/<section data-ba-slug="([^"]+)"(?! hidden)/, '<section data-ba-slug="$1" hidden');
+    fs.writeFileSync(f, html);
+    if (picks.length) console.log(`${f} 치료사례 ${picks.length}건(slug=${slug})`);
   }
-  fs.writeFileSync("cases.html", out);
-  console.log(`cases.html 전후사진 ${data.length}건 반영 완료`);
 }
 
 (async () => {
