@@ -16,6 +16,23 @@ const GA = `<!-- Google Analytics (GA4) -->
   if (location.hostname === "barodreamdental.kr") { gtag("config", "G-WMKC3PRD3W"); }
 </script>`;
 
+// 본사이트 전체 헤더/모바일메뉴/푸터/JS를 실제 페이지에서 추출 → /dictionary/ 기준으로 경로 보정
+const REF = fs.readFileSync("caries.html", "utf-8");
+const cut = (s, a, b) => { const i = s.indexOf(a); const j = s.indexOf(b, i + a.length); return s.slice(i, j + b.length); };
+function fixPaths(s) {
+  s = s.replace(/href="([a-zA-Z][a-zA-Z0-9_\-]*\.html)/g, 'href="../$1');
+  s = s.replace(/href="\.\.\/dictionary\/index\.html"/g, 'href="index.html"');
+  return s;
+}
+const HEADER = fixPaths(cut(REF, "<!-- HEADER -->", "</header>"));
+const MMENU = fixPaths(REF.slice(REF.indexOf("<!-- bd-mobile-menu -->"), REF.indexOf('<div id="bd-notice-bar"')));
+const GNBCSS = cut(REF, "/* ── GNB 드롭다운", "</style>").replace(/<\/style>\s*$/, "") + "\n  #bd-float-cta a{ pointer-events:auto; }";
+const MMCSS = cut(REF, '<style id="bd-mm-style">', "</style>");
+const FOOTER_FULL = fixPaths(cut(REF, "<footer", "</footer>"));
+const FLOAT = fixPaths(cut(REF, '<div id="bd-float-cta"', "</div>"));
+const mmI = REF.lastIndexOf("<script>", REF.indexOf("var mm=document.getElementById('bd-mobile-menu')"));
+const MMJS = REF.slice(mmI, REF.indexOf("</script>", mmI) + 9);
+
 // 연결 진료페이지: 용어표 표기 → 실제 파일명
 const PAGE = {
   "implant.html": "implant-senior.html",
@@ -147,7 +164,7 @@ const T = [
     why:"여러 치아가 손상됐거나 교합이 무너진 경우, 부분이 아니라 전체를 하나의 계획으로 보는 접근입니다." },
 
   { slug:"sedation-implant", cat:2, term:"수면임플란트", search:["수면임플란트란","자면서 임플란트"], page:"implant-sedation.html", related:["의식하진정법","정맥 진정"], col:false,
-    def:"수면임플란트는 진정 약물을 이용해 편안한 상태에서 임플란트 수술을 받는 방법을 말합니다. 완전히 잠드는 것이 아니라 의식이 있는 얕은 진정 상태에서 진행하는 경우가 많아, 두려움과 긴장을 줄이는 데 목적이 있습니다.",
+    def:"수면임플란트는 완전히 잠드는 것이 아니라, 의식이 있는 진정 상태에서 두려움과 긴장을 낮추며 임플란트 수술을 받는 방법입니다. 진정 약물로 편안함을 돕되 의식은 유지되는 얕은 진정으로 진행하는 경우가 많습니다.",
     why:"치과 수술이 무섭거나 오래 앉아 있기 힘든 분이 부담을 덜고 치료받는 데 도움이 될 수 있습니다." },
   { slug:"conscious-sedation", cat:2, term:"의식하진정법", search:["의식하진정이 뭐예요"], page:"sedation.html", related:["수면임플란트","진정 깊이 단계","마취과 협진"], col:false,
     def:"의식하진정법은 진정 약물로 긴장과 불안을 낮춘 상태에서 치료를 받는 방법입니다. 의식이 완전히 사라지는 전신마취와 달리, 얕은 진정 상태를 유지하며 진행합니다.",
@@ -208,7 +225,6 @@ function head(title, desc, canonical) {
 ${GA}
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex, nofollow">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(desc)}">
@@ -248,18 +264,19 @@ ${GA}
   .idx-term{ display:block; padding:18px 0; border-bottom:1px solid var(--line); text-decoration:none; }
   .idx-term h3{ font-family:'Noto Serif KR',serif; font-weight:500; font-size:17px; margin:0 0 4px; color:#1A1A1A; }
   .idx-term p{ font-size:14px; color:#8A8A8A; margin:0; line-height:1.5; }
+  ${GNBCSS}
 </style>
+${MMCSS}
 </head>
 <body>
-<header class="dh">
-  <a class="logo" href="../index.html">바로드림치과</a>
-  <nav><a href="index.html">치과사전</a><a href="../doctors.html">의료진</a><a href="../index.html#location">오시는 길</a></nav>
-</header>`;
+<div style="max-width:100vw;">
+${HEADER}
+${MMENU}`;
 }
-const footer = `<footer class="dh">
-  <div><a href="../index.html">바로드림치과 안산점</a> · 경기 안산시 단원구 고잔로 108 대동조이월드 4층 · Tel. 031-402-2282</div>
-  <div style="margin-top:8px;"><a href="index.html">치과 백과사전 목록</a></div>
-</footer>
+const footer = `${FOOTER_FULL}
+${FLOAT}
+</div>
+${MMJS}
 </body>
 </html>`;
 
