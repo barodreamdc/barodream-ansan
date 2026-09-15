@@ -86,7 +86,7 @@
   #bd-float-cta a{ pointer-events:auto; }
 </style>
 <style id="bd-mm-style">
-  #consultation-form input, #consultation-form select, #consultation-form textarea, #consultation-form button{ width:100%; min-width:0; box-sizing:border-box; }
+  #consultation-form input:not([type="checkbox"]), #consultation-form select, #consultation-form textarea, #consultation-form button{ width:100%; min-width:0; box-sizing:border-box; }
   .bd-mm-toggle{ display:none; }
   @media (max-width:768px){
     .bd-nav{ display:none!important; }
@@ -519,8 +519,8 @@
     els.forEach(function(el){ io.observe(el); });
   })();
 </script>
-<script src="js/config.js"></script>
-<script src="js/barodream-api.js" defer></script>
+<script src="js/config.js?v=20260915"></script>
+<script src="js/barodream-api.js?v=20260915" defer></script>
 <script>
   (function(){
     var mm=document.getElementById('bd-mobile-menu');

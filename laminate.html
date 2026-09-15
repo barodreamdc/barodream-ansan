@@ -100,7 +100,7 @@
 }
 </script>
 <style id="bd-mm-style">
-  #consultation-form input, #consultation-form select, #consultation-form textarea, #consultation-form button{ width:100%; min-width:0; box-sizing:border-box; }
+  #consultation-form input:not([type="checkbox"]), #consultation-form select, #consultation-form textarea, #consultation-form button{ width:100%; min-width:0; box-sizing:border-box; }
   .bd-mm-toggle{ display:none; }
   @media (max-width:768px){
     .bd-nav{ display:none!important; }
@@ -473,8 +473,8 @@
     els.forEach(function(el){ io.observe(el); });
   })();
 </script>
-<script src="js/config.js"></script>
-<script src="js/barodream-api.js" defer></script>
+<script src="js/config.js?v=20260915"></script>
+<script src="js/barodream-api.js?v=20260915" defer></script>
 <!-- 네이버 애널리틱스 -->
 <script type="text/javascript" src="//wcs.pstatic.net/wcslog.js"></script>
 <script type="text/javascript">
@@ -483,6 +483,27 @@ wcs_add["wa"] = "18b52fae20daeb0";
 if(window.wcs) {
   wcs_do();
 }
+</script>
+<script>
+  (function(){
+    var mm=document.getElementById('bd-mobile-menu');
+    var toggle=document.querySelector('.bd-mm-toggle');
+    if(!mm||!toggle) return;
+    function openMenu(){ mm.hidden=false; requestAnimationFrame(function(){ mm.classList.add('is-open'); }); document.body.classList.add('bd-mm-lock'); toggle.setAttribute('aria-expanded','true'); }
+    function closeMenu(){ mm.classList.remove('is-open'); document.body.classList.remove('bd-mm-lock'); toggle.setAttribute('aria-expanded','false'); setTimeout(function(){ mm.hidden=true; },330); }
+    toggle.addEventListener('click', openMenu);
+    Array.prototype.forEach.call(mm.querySelectorAll('[data-mm-close]'), function(el){ el.addEventListener('click', closeMenu); });
+    Array.prototype.forEach.call(mm.querySelectorAll('.bd-mm-parent'), function(p){
+      p.addEventListener('click', function(){
+        var exp=p.getAttribute('aria-expanded')==='true';
+        var sub=p.nextElementSibling;
+        p.setAttribute('aria-expanded', String(!exp));
+        if(sub){ sub.style.maxHeight = exp ? '0px' : sub.scrollHeight+'px'; }
+      });
+    });
+    Array.prototype.forEach.call(mm.querySelectorAll('a[href]'), function(a){ a.addEventListener('click', closeMenu); });
+    document.addEventListener('keydown', function(e){ if(e.key==='Escape' && mm.classList.contains('is-open')) closeMenu(); });
+  })();
 </script>
 </body>
 </html>

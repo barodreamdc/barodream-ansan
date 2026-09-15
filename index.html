@@ -154,7 +154,7 @@
   }
 </style>
 <style id="bd-mm-style">
-  #consultation-form input, #consultation-form select, #consultation-form textarea, #consultation-form button{ width:100%; min-width:0; box-sizing:border-box; }
+  #consultation-form input:not([type="checkbox"]), #consultation-form select, #consultation-form textarea, #consultation-form button{ width:100%; min-width:0; box-sizing:border-box; }
   .bd-mm-toggle{ display:none; }
   @media (max-width:768px){
     .bd-nav{ display:none!important; }
@@ -513,7 +513,7 @@
         <a href="column.html" style="font-size:13px; color:var(--accent); text-decoration:none;">더 보기 →</a>
       </div>
       <!-- TODO: 블로그 배포 후 href를 https://blog.barodreamdental.kr/crown-bridge-caries-front-implant 로 교체 -->
-      <a href="column.html" style="display:block; text-decoration:none; border:1px solid var(--line); border-radius:6px; overflow:hidden;">
+      <a href="column-01.html" style="display:block; text-decoration:none; border:1px solid var(--line); border-radius:6px; overflow:hidden;">
         <div class="bd-preview-card" style="display:flex;">
           <img src="images/col-crown-bridge.webp" alt="크라운·브리지가 빠졌다면, 바로 다시 붙이면 될까요" width="480" height="252" style="width:120px; height:90px; object-fit:cover; flex-shrink:0;">
           <div style="padding:16px 18px;"><p style="font-size:12px; color:var(--accent); margin:0 0 6px;">임플란트</p><p style="font-size:14px; line-height:1.5; color:#1A1A1A; margin:0;">크라운·브리지가 빠졌다면, 바로 다시 붙이면 될까요</p></div>
@@ -712,7 +712,7 @@
       <div style="font-family:'Noto Serif KR',serif; font-size:72px; line-height:1; color:var(--accent); margin-bottom:26px;">作</div>
       <h2 style="font-family:'Noto Serif KR',serif; font-weight:500; font-size:clamp(24px,3.4vw,36px); line-height:1.4; letter-spacing:-0.02em; color:#fff; margin:0;">원내 기공소에서,<br>더 가깝게 만듭니다.</h2>
       <p style="font-size:16px; line-height:1.8; color:rgba(255,255,255,.66); margin:28px 0 0; max-width:420px;">필요한 보철물은 원내 디지털 기공소에서 직접 제작·조정합니다. 원장의 손끝과 기공사의 손끝이 한 공간에서 맞춰지는 만큼, 조정도 더 빠르고 정확합니다.</p>
-      <a href="#" style="display:inline-block; margin-top:34px; font-size:15px; color:#fff; text-decoration:none; border-bottom:1px solid rgba(255,255,255,.6); padding-bottom:3px; width:fit-content;">원내 디지털 기공소 보기</a>
+      <a href="prosthesis.html" style="display:inline-block; margin-top:34px; font-size:15px; color:#fff; text-decoration:none; border-bottom:1px solid rgba(255,255,255,.6); padding-bottom:3px; width:fit-content;">원내 디지털 기공소 보기</a>
     </div>
   </div>
 </section>
@@ -893,8 +893,8 @@
     });
   })();
 </script>
-<script src="js/config.js"></script>
-<script src="js/barodream-api.js" defer></script>
+<script src="js/config.js?v=20260915"></script>
+<script src="js/barodream-api.js?v=20260915" defer></script>
 <script>
   (function(){
     var mm=document.getElementById('bd-mobile-menu');
