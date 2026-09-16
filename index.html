@@ -885,7 +885,7 @@
       entries.forEach(function(e){
         if(e.isIntersecting){ e.target.classList.add('is-in'); io.unobserve(e.target); }
       });
-    }, { threshold:0.12 });
+    }, { threshold:0 });
     els.forEach(function(el){ io.observe(el); });
 
     // 걱정 카드 호버 리프트
