@@ -9,5 +9,8 @@ window.BARODREAM_CONFIG = {
   // 입력 완료 (publishable key는 공개 가능한 클라이언트 키 — RLS로 보호됨)
   SUPABASE_URL: 'https://rnvokvqnlvzzdlddfroc.supabase.co',
   SUPABASE_ANON_KEY: 'sb_publishable_YJUUs80flt3OFGHB5TBdqg_TPYmJWU3',
-  CLOUDINARY_CLOUD_NAME: 'rjoebmnd'
+  CLOUDINARY_CLOUD_NAME: 'rjoebmnd',
+  // Web3Forms 상담 접수 이메일 발송용 공개 키(access_key). web3forms.com 대시보드 값.
+  // 이 키는 클라이언트에 노출돼도 되는 공개 접수 키입니다(비밀키 아님).
+  WEB3FORMS_KEY: '여기에_Web3Forms_access_key_입력'
 };

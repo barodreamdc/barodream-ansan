@@ -102,33 +102,58 @@
     }).catch(function () {});
   }
 
-  /* ── 3. 상담 예약 폼 (consultations 테이블, INSERT) ────── */
+  /* ── 3. 상담 예약 폼 (이메일=Web3Forms + DB=consultations INSERT, 둘 다) ── */
   function initConsultForm() {
     var form = document.getElementById('consultation-form');
     if (!form) return;
+    var CFG = window.BARODREAM_CONFIG || {};
+    var W3KEY = CFG.WEB3FORMS_KEY;
+    var hasEmail = !!(W3KEY && W3KEY.indexOf('여기에') === -1);  // 실제 키가 채워졌을 때만 이메일 전송
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      if (!READY) { alert('상담 접수 준비 중입니다. 잠시 후 다시 시도해 주세요.'); return; }
+      if (!hasEmail && !READY) { alert('상담 접수 준비 중입니다. 잠시 후 다시 시도하거나 전화(031-402-2282)로 문의해 주세요.'); return; }
       var fd = new FormData(form);
-      var payload = {
-        name: fd.get('name'),
-        phone: fd.get('phone'),
-        treatment_type: fd.get('treatment_type') || null,
-        message: fd.get('message') || null,
-        agree_to_terms: fd.get('agree_to_terms') ? true : false,
-        source_page: location.pathname
-      };
+      var name = fd.get('name'), phone = fd.get('phone');
+      var treatment = fd.get('treatment_type') || '', message = fd.get('message') || '';
+      var agree = fd.get('agree_to_terms') ? true : false;
       var btn = form.querySelector('[type="submit"]');
       if (btn) { btn.disabled = true; btn.dataset.label = btn.textContent; btn.textContent = '접수 중...'; }
-      fetch(REST + 'consultations', {
-        method: 'POST',
-        headers: Object.assign({ 'Content-Type': 'application/json', Prefer: 'return=minimal' }, HEADERS),
-        body: JSON.stringify(payload)
-      }).then(function (r) {
-        if (r.ok) { alert('상담 신청이 접수되었습니다. 확인 후 연락드리겠습니다.'); form.reset(); }
-        else { alert('접수 중 문제가 발생했습니다. 전화로 문의해 주세요.'); }
-      }).catch(function () {
-        alert('접수 중 문제가 발생했습니다. 전화로 문의해 주세요.');
+
+      var tasks = [];
+      // (a) 이메일 — Web3Forms (수신 메일은 web3forms 대시보드에서 access_key에 연결)
+      if (hasEmail) {
+        tasks.push(fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify({
+            access_key: W3KEY,
+            subject: '[홈페이지 상담신청] ' + (name || '') + (phone ? ' · ' + phone : ''),
+            from_name: '바로드림치과 안산점 홈페이지',
+            이름: name, 연락처: phone,
+            상담항목: treatment || '(선택 안 함)',
+            문의내용: message || '(없음)',
+            개인정보동의: agree ? '동의' : '미동의',
+            접수페이지: location.pathname
+          })
+        }).then(function (r) { return r.ok; }).catch(function () { return false; }));
+      }
+      // (b) DB — Supabase consultations
+      if (READY) {
+        tasks.push(fetch(REST + 'consultations', {
+          method: 'POST',
+          headers: Object.assign({ 'Content-Type': 'application/json', Prefer: 'return=minimal' }, HEADERS),
+          body: JSON.stringify({
+            name: name, phone: phone,
+            treatment_type: treatment || null, message: message || null,
+            agree_to_terms: agree, source_page: location.pathname
+          })
+        }).then(function (r) { return r.ok; }).catch(function () { return false; }));
+      }
+
+      Promise.all(tasks).then(function (results) {
+        var ok = results.some(function (x) { return x; });  // 이메일·DB 중 하나라도 성공하면 접수 완료
+        if (ok) { alert('상담 신청이 접수되었습니다. 확인 후 연락드리겠습니다.'); form.reset(); }
+        else { alert('접수 중 문제가 발생했습니다. 전화(031-402-2282)로 문의해 주세요.'); }
       }).finally(function () {
         if (btn) { btn.disabled = false; btn.textContent = btn.dataset.label || '상담 신청'; }
       });
