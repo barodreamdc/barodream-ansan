@@ -277,7 +277,23 @@
   <div style="max-width:1100px; margin:0 auto;">
     <!-- ⚠ 아래 4개 카드는 예시입니다. 실제 치료 사례(전/후 사진 + 원장 소견)로 교체해 주세요. -->
     <!-- 작성 원칙: 환자의 1인칭 후기(예: "정말 만족했어요")가 아니라, 원장 시점의 객관적 진료 기록으로 작성합니다. -->
+    <style>
+      .bd-ba-tab{ padding:8px 16px; border:1px solid var(--line); background:#fff; border-radius:100px; font-size:14px; color:#4A4A4A; cursor:pointer; letter-spacing:-0.01em; font-family:'Pretendard',sans-serif; }
+      .bd-ba-tab.is-on{ background:var(--accent); color:#fff; border-color:var(--accent); }
+      .bd-ba-empty{ text-align:center; color:#8A8A8A; padding:60px 0; font-size:15px; grid-column:1/-1; }
+    </style>
+    <div class="bd-ba-tabs" style="display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin:0 0 40px;">
+      <button type="button" class="bd-ba-tab is-on" data-cat="">전체</button>
+      <button type="button" class="bd-ba-tab" data-cat="임플란트">임플란트</button>
+      <button type="button" class="bd-ba-tab" data-cat="의식하진정법">의식하진정법</button>
+      <button type="button" class="bd-ba-tab" data-cat="심미치료">심미치료</button>
+      <button type="button" class="bd-ba-tab" data-cat="일반진료">일반진료</button>
+      <button type="button" class="bd-ba-tab" data-cat="치아교정">치아교정</button>
+      <button type="button" class="bd-ba-tab" data-cat="턱관절">턱관절</button>
+      <button type="button" class="bd-ba-tab" data-cat="보철">보철</button>
+    </div>
     <div class="bd-cards2" style="display:grid; grid-template-columns:repeat(2,1fr); gap:32px;">
+      <p class="bd-ba-empty" hidden>해당 분류의 사례가 아직 없습니다.</p>
       <!-- BEFORE_AFTER:START — 관리자 전후사진이 이 사이에 자동 삽입됩니다(patternB). 아래는 기본 예시. -->
       <div style="border:1px solid var(--line); border-radius:8px; padding:16px;">
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
@@ -761,6 +777,31 @@ wcs_add["wa"] = "18b52fae20daeb0";
 if(window.wcs) {
   wcs_do();
 }
+</script>
+<script>
+(function(){
+  var tabs=document.querySelectorAll('.bd-ba-tab');
+  var grid=document.querySelector('.bd-cards2');
+  var empty=document.querySelector('.bd-ba-empty');
+  if(!tabs.length||!grid) return;
+  function apply(cat){
+    var cards=grid.querySelectorAll('[data-ba-category]');
+    var shown=0;
+    cards.forEach(function(c){
+      var on=!cat||c.getAttribute('data-ba-category')===cat;
+      c.style.display=on?'':'none';
+      if(on) shown++;
+    });
+    if(empty) empty.hidden=shown>0;
+  }
+  tabs.forEach(function(t){
+    t.addEventListener('click',function(){
+      tabs.forEach(function(x){ x.classList.remove('is-on'); });
+      t.classList.add('is-on');
+      apply(t.getAttribute('data-cat'));
+    });
+  });
+})();
 </script>
 </body>
 </html>
