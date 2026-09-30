@@ -129,6 +129,7 @@
             access_key: W3KEY,
             subject: '[홈페이지 상담신청] ' + (name || '') + (phone ? ' · ' + phone : ''),
             from_name: '바로드림치과 안산점 홈페이지',
+            ccemail: 'juny7765@gmail.com',
             이름: name, 연락처: phone,
             상담항목: treatment || '(선택 안 함)',
             문의내용: message || '(없음)',

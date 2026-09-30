@@ -12,5 +12,5 @@ window.BARODREAM_CONFIG = {
   CLOUDINARY_CLOUD_NAME: 'rjoebmnd',
   // Web3Forms 상담 접수 이메일 발송용 공개 키(access_key). web3forms.com 대시보드 값.
   // 이 키는 클라이언트에 노출돼도 되는 공개 접수 키입니다(비밀키 아님).
-  WEB3FORMS_KEY: '여기에_Web3Forms_access_key_입력'
+  WEB3FORMS_KEY: '1986688a-1eb4-44c9-8330-c516d9906ae5'
 };
