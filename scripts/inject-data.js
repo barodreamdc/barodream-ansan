@@ -378,7 +378,7 @@ function baCardSmall(r) {
 
 async function injectBeforeAfter() {
   const rows = (await rest(
-    "before_after?select=treatment_name,treatment_category,before_image_url,after_image_url,description,duration,page_slug,display_order" +
+    "before_after?select=treatment_name,treatment_category,before_image_url,after_image_url,description,duration,page_slug,page_slugs,display_order,created_at" +
       "&is_active=eq.true&consent_signed=eq.true&order=display_order.asc",
   )) || [];
 
@@ -397,7 +397,14 @@ async function injectBeforeAfter() {
     const m = html.match(/<section data-ba-slug="([^"]+)"/);
     if (!m) continue;
     const slug = m[1];
-    const picks = rows.filter((r) => r.page_slug === slug).slice(0, 3);
+    // page_slugs(다중) 우선, 없으면 옛 page_slug(단일) 폴백. 최신 최대 3건.
+    const picks = rows
+      .filter((r) => {
+        const slugs = r.page_slugs && r.page_slugs.length ? r.page_slugs : r.page_slug ? [r.page_slug] : [];
+        return slugs.includes(slug);
+      })
+      .sort((a, b) => String(b.created_at || "").localeCompare(String(a.created_at || "")))
+      .slice(0, 3);
     // 1건=가운데 720px, 2건 이상=2열
     const grid = picks.length === 1
       ? `      <div style="max-width:720px; margin:0 auto;">\n${baCardSmall(picks[0])}\n      </div>`
