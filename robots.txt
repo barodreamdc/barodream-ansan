@@ -11,3 +11,4 @@ User-agent: PerplexityBot
 Allow: /
 
 Sitemap: https://barodreamdental.kr/sitemap.xml
+Sitemap: https://barodreamdental.kr/sitemap-ru.xml
