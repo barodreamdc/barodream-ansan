@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Стоматология в Ансане (안산 치과) с русским переводчиком | Barodream Dental</title>
+<meta name="description" content="Стоматология в Ансане (안산), Коджан-дон (고잔동), рядом со станцией Ансан-Чунан (안산중앙역). С 2021 года принимаем русскоговорящих пациентов — корё-сарам и россиян; в клинике постоянно работает русский переводчик. Импланты, седация, ортодонтия.">
+<link rel="canonical" href="https://barodreamdental.kr/ru/index.html">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Barodream Dental Ansan">
+<meta property="og:title" content="Стоматология в Ансане с русским переводчиком | Barodream Dental">
+<meta property="og:description" content="С 2021 года принимаем русскоговорящих пациентов — корё-сарам и россиян. В клинике постоянно работает переводчик.">
+<meta property="og:url" content="https://barodreamdental.kr/ru/index.html">
+<meta property="og:image" content="https://barodreamdental.kr/images/og-index.jpg">
+
+<!--
+  바로드림치과 안산점 · 러시아어 메인 페이지 (정식 버전 1차)
+  ------------------------------------------------------------------
+  ⚠ 이 페이지는 26개 페이지 중 첫 번째입니다. 나머지 25개 페이지는 이어서 순차 제작 예정입니다.
+  ⚠ 현재 팝업(질문 안내), "이런 고민" 카드, 후기 캐러셀 섹션은 이번 1차 버전에서 제외했습니다.
+  배포 전 교체: 전화번호 / 주소 / 사업자번호 / 사진 / og:image
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;500;600;700&family=Noto+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  :root{ --accent:#6B4423; --ink:#1A1A1A; --ink2:#4A4A4A; --ink3:#8A8A8A; --line:rgba(26,26,26,.12); --bg2:#F5F5F5; }
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; overflow-x:hidden; }
+  body{ margin:0; background:#fff; color:#1A1A1A; -webkit-font-smoothing:antialiased; font-family:'Noto Sans',sans-serif; }
+  ::selection{ background:#6B4423; color:#fff; }
+  a{ -webkit-tap-highlight-color:transparent; }
+  @keyframes bdFloat{ 0%,100%{ transform:translateY(0);} 50%{ transform:translateY(-6px);} }
+
+  .ph{ display:flex; align-items:center; justify-content:center; text-align:center; padding:20px;
+       background:repeating-linear-gradient(45deg,#e4e4e4,#e4e4e4 12px,#dbdbdb 12px,#dbdbdb 24px);
+       color:#8a8a8a; font-size:13px; font-family:'Noto Sans',sans-serif; letter-spacing:-0.01em; line-height:1.5; }
+  .bd-photo-bw{ filter:contrast(1.02); }
+
+  [data-reveal]{ transition:opacity .8s ease, transform .8s ease; }
+  [data-reveal].bd-pre{ opacity:0; transform:translateY(24px); }
+  [data-reveal].is-in{ opacity:1; transform:none; }
+
+  .bd-nav-item{ position:relative; display:flex; align-items:center; }
+  .bd-nav .bd-nav-top{ font-size:14px; color:#1A1A1A; text-decoration:none; letter-spacing:-0.01em; white-space:nowrap; }
+  .bd-nav .bd-nav-top:hover{ color:var(--accent); }
+  .bd-dropdown{ position:absolute; top:100%; left:50%; transform:translateX(-50%) translateY(6px);
+    min-width:230px; background:#fff; border:1px solid var(--line); border-radius:6px;
+    box-shadow:0 14px 30px rgba(26,26,26,.12); padding:8px; display:flex; flex-direction:column;
+    opacity:0; visibility:hidden; pointer-events:none; transition:opacity .18s ease, transform .18s ease; z-index:120; }
+  .bd-nav-item:hover .bd-dropdown{ opacity:1; visibility:visible; pointer-events:auto; transform:translateX(-50%) translateY(0); }
+  .bd-dropdown a{ display:block; white-space:nowrap; padding:10px 14px; border-radius:4px;
+    font-size:13px; color:#4A4A4A; text-decoration:none; letter-spacing:-0.01em; }
+  .bd-dropdown a:hover{ background:var(--bg2); color:var(--accent); }
+
+  @media (max-width:1000px){
+    .bd-nav{ display:none!important; }
+    .bd-care-grid{ grid-template-columns:1fr!important; }
+    .bd-doctors-grid{ grid-template-columns:1fr!important; }
+    .bd-loc-grid{ grid-template-columns:1fr!important; }
+    .bd-footer-grid{ grid-template-columns:1fr!important; }
+  }
+
+  /* 모바일 메뉴 (햄버거) */
+  .bd-burger{ display:none; width:42px; height:42px; margin-left:10px; align-items:center; justify-content:center; background:none; border:1px solid var(--line); border-radius:8px; cursor:pointer; padding:0; flex-shrink:0; }
+  .bd-burger span{ display:block; width:18px; height:2px; background:#1A1A1A; position:relative; }
+  .bd-burger span::before,.bd-burger span::after{ content:''; position:absolute; left:0; width:18px; height:2px; background:#1A1A1A; }
+  .bd-burger span::before{ top:-6px; } .bd-burger span::after{ top:6px; }
+  .bd-mpanel{ display:none; position:fixed; top:80px; left:0; right:0; max-height:calc(100vh - 80px); overflow:auto; background:#fff; border-bottom:1px solid var(--line); box-shadow:0 14px 30px rgba(26,26,26,.12); padding:6px 22px 22px; z-index:99; }
+  .bd-mpanel.open{ display:block; }
+  .bd-mpanel a{ display:block; text-decoration:none; color:#1A1A1A; }
+  .bd-mpanel .g{ border-bottom:1px solid var(--line); padding:10px 0; }
+  .bd-mpanel .g > a.t{ font-size:16px; font-weight:600; padding:6px 0; }
+  .bd-mpanel .g > a.s{ font-size:14px; color:#4A4A4A; padding:6px 0 6px 14px; }
+  @media (max-width:1000px){ .bd-burger{ display:flex; } }
+  @media (max-width:1000px){ header > a[href^="../"]{ margin-left:auto!important; } }
+  @media (min-width:1001px){ .bd-mpanel{ display:none!important; } }
+  /* 휴대폰: 여러 칸 배치는 한 줄로, 넘치는 목록은 줄바꿈 */
+  @media (max-width:700px){
+    [style*="repeat(2,1fr)"], [style*="repeat(3,1fr)"], [style*="1fr 1fr"], [style*="340px 1fr"], [style*="1.3fr 1fr"], [style*="1.4fr 1fr 1fr"]{ grid-template-columns:1fr!important; }
+    [style*="border-left:1px solid rgba(255,255,255,.12)"]{ border-left:0!important; border-right:0!important; border-top:1px solid rgba(255,255,255,.12)!important; border-bottom:1px solid rgba(255,255,255,.12)!important; }
+    li > a[style*="display:flex"]{ flex-wrap:wrap!important; }
+    span[style*="width:90px"], span[style*="width:110px"]{ width:auto!important; }
+    header{ padding:0 18px!important; }
+  }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Dentist",
+  "name": "바로드림치과 안산점 (Barodream Dental Clinic Ansan)",
+  "alternateName": [
+    "Стоматология Barodream Ansan",
+    "Barodream Dental Ansan",
+    "Бародрим"
+  ],
+  "url": "https://barodreamdental.kr/ru/index.html",
+  "telephone": "+82-31-402-2282",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "고잔로 108 대동조이월드 405호 4층 (롯데시네마 센트럴락 4층)",
+    "addressLocality": "안산시 단원구",
+    "addressRegion": "경기도",
+    "addressCountry": "KR"
+  },
+  "availableLanguage": [
+    "ko",
+    "ru"
+  ],
+  "areaServed": [
+    {
+      "@type": "City",
+      "name": "안산시"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "단원구"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "고잔동"
+    }
+  ],
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Thursday",
+        "Friday"
+      ],
+      "opens": "09:30",
+      "closes": "18:30"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Wednesday",
+      "opens": "09:30",
+      "closes": "21:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Saturday",
+      "opens": "09:30",
+      "closes": "13:30"
+    }
+  ],
+  "sameAs": [
+    "https://blog.naver.com/barodream1",
+    "https://pf.kakao.com/_ySveK",
+    "https://www.facebook.com/barodreamdc/"
+  ]
+}
+</script>
+</head>
+<body>
+
+<div style="max-width:100vw;">
+<span id="top"></span>
+
+<!-- ============ HEADER ============ -->
+<header style="position:sticky; top:0; z-index:100; height:80px; display:flex; align-items:center; justify-content:space-between; padding:0 40px; background:rgba(255,255,255,.9); backdrop-filter:blur(14px); border-bottom:1px solid var(--line);">
+  <a href="index.html" style="display:flex; align-items:flex-end; gap:10px; text-decoration:none;">
+    <span style="font-family:'Noto Serif',serif; font-weight:600; font-size:22px; letter-spacing:-0.01em; color:#1A1A1A;">Barodream</span>
+    <span style="font-family:'Noto Sans',sans-serif; font-size:12px; letter-spacing:0.18em; color:#8A8A8A; padding-bottom:4px;">ANSAN</span>
+  </a>
+  <nav class="bd-nav" style="display:flex; align-items:center; gap:26px;">
+    <div class="bd-nav-item">
+      <a href="implant-senior.html" class="bd-nav-top">Импланты</a>
+      <div class="bd-dropdown">
+        <a href="implant-senior.html">Сеньоль</a>
+        <a href="implant-all-on-x.html">Импланты на всю челюсть (All-on-X)</a>
+        <a href="implant-navigation.html">Навигационная имплантация</a>
+        <a href="implant-immediate.html">Немедленная нагрузка</a>
+      </div>
+    </div>
+    <div class="bd-nav-item">
+      <a href="sedation.html" class="bd-nav-top">Седация</a>
+      <div class="bd-dropdown">
+        <a href="implant-sedation.html">Имплантация под седацией</a>
+        <a href="caries.html">Кариес и каналы</a>
+        <a href="perio.html">Дёсны</a>
+        <a href="prosthesis.html">Цифровое протезирование</a>
+      </div>
+    </div>
+    <div class="bd-nav-item">
+      <a href="natural-tooth.html" class="bd-nav-top">Сохранение зубов</a>
+      <div class="bd-dropdown">
+        <a href="natural-caries.html">Кариес</a>
+        <a href="endo.html">Каналы</a>
+        <a href="natural-perio.html">Дёсны</a>
+        <a href="natural-prosthesis.html">Протезирование</a>
+      </div>
+    </div>
+    <div class="bd-nav-item">
+      <a href="laminate.html" class="bd-nav-top">Эстетика</a>
+      <div class="bd-dropdown">
+        <a href="laminate.html">Виниры</a>
+        <a href="resin-front.html">Композитная реставрация</a>
+      </div>
+    </div>
+    <div class="bd-nav-item">
+      <a href="ortho.html" class="bd-nav-top">Ортодонтия</a>
+      <div class="bd-dropdown">
+        <a href="ortho-adult.html">Взрослая</a>
+        <a href="ortho-child.html">Детская</a>
+        <a href="ortho-clear.html">Прозрачные элайнеры</a>
+      </div>
+    </div>
+    <a href="tmj.html" class="bd-nav-top">ВНЧС</a>
+    <div class="bd-nav-item">
+      <a href="#story" class="bd-nav-top">О клинике</a>
+      <div class="bd-dropdown">
+        <a href="doctors.html">Врачи</a>
+        <a href="column.html">Статьи</a>
+        <a href="cases.html">Случаи лечения</a>
+        <a href="news.html">СМИ</a>
+      </div>
+    </div>
+    <a href="#location" class="bd-nav-top">Контакты</a>
+  </nav>
+  <a href="../index.html" style="font-size:13px; color:#4A4A4A; text-decoration:none; border:1px solid var(--line); border-radius:99px; padding:7px 16px; margin-left:14px;">한국어 KO</a>
+</header>
+
+<!-- ============ 1. HERO ============ -->
+<section style="position:relative; height:calc(100vh - 80px); min-height:560px; display:flex; align-items:center; overflow:hidden; background:#111;">
+  <div class="ph" style="position:absolute; inset:0; overflow:hidden;"><img src="https://barodreamdental.kr/images/hero-hand4.webp" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; filter:contrast(1.02) brightness(.88);" onerror="this.style.display='none';"></div>
+  <div style="position:absolute; inset:0; background:linear-gradient(90deg, rgba(10,10,10,.82) 0%, rgba(10,10,10,.5) 46%, rgba(10,10,10,.12) 100%);"></div>
+  <div data-reveal style="position:relative; max-width:1200px; margin:0 auto; padding:0 40px; width:100%;">
+    <p style="font-family:'Noto Sans',sans-serif; font-size:13px; letter-spacing:0.2em; color:rgba(255,255,255,.62); margin:0 0 26px;">BARODREAM DENTAL · ANSAN</p>
+    <h1 style="font-family:'Noto Serif',serif; font-weight:500; font-size:clamp(32px,5.4vw,60px); line-height:1.3; letter-spacing:-0.01em; color:#fff; margin:0;">Мы понимаем,<br>почему вы откладывали визит.</h1>
+    <p style="font-family:'Noto Sans',sans-serif; font-size:clamp(16px,1.8vw,19px); line-height:1.7; color:rgba(255,255,255,.82); margin:28px 0 0; font-weight:300; max-width:560px;">Потому что я сам был таким пациентом 30 лет.</p>
+    <p style="font-family:'Noto Sans',sans-serif; font-size:15px; line-height:1.7; color:rgba(255,255,255,.7); margin:14px 0 0; max-width:560px;">С 2021 года мы принимаем русскоговорящих пациентов — и корё-сарам, и россиян. В клинике постоянно работает переводчик.</p>
+    <p style="font-family:'Playfair Display',serif; font-style:italic; font-size:15px; color:rgba(255,255,255,.6); margin:14px 0 0;">— Хан Джи Сан, главный врач клиники Barodream Ansan</p>
+    <div style="display:flex; gap:14px; margin-top:40px; flex-wrap:wrap;">
+      <a href="#location" style="display:inline-flex; align-items:center; padding:15px 30px; background:#fff; color:#1A1A1A; font-size:14px; font-weight:500; text-decoration:none; border-radius:2px;">Записаться на консультацию</a>
+      <a href="#care" style="display:inline-flex; align-items:center; padding:15px 28px; background:transparent; color:#fff; font-size:14px; font-weight:500; text-decoration:none; border:1px solid rgba(255,255,255,.5); border-radius:2px;">Направления лечения</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 1.5 ПЕРЕВОДЧИК / ДОВЕРИЕ ============ -->
+<section data-reveal style="padding:70px 24px; background:#1A1A1A; border-top:1px solid rgba(255,255,255,.08);">
+  <div style="max-width:1100px; margin:0 auto;">
+    <p style="font-family:'Noto Sans',sans-serif; font-size:15px; line-height:1.8; color:rgba(255,255,255,.65); margin:0 0 40px; text-align:center; max-width:720px; margin-left:auto; margin-right:auto;">Получать медицинскую помощь, живя вдали от родины, непросто — особенно когда сложно найти понятную информацию на своём языке. Мы создали эту страницу, чтобы хоть немного облегчить эту задачу.</p>
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:24px;">
+      <div style="text-align:center; padding:28px 20px;">
+        <p style="font-family:'Noto Serif',serif; font-weight:500; font-size:28px; color:var(--accent); margin:0 0 10px;">С 2021 года</p>
+        <p style="font-size:14px; line-height:1.6; color:rgba(255,255,255,.7); margin:0;">Принимаем русскоговорящих пациентов — корё-сарам и россиян</p>
+      </div>
+      <div style="text-align:center; padding:28px 20px; border-left:1px solid rgba(255,255,255,.12); border-right:1px solid rgba(255,255,255,.12);">
+        <p style="font-family:'Noto Serif',serif; font-weight:500; font-size:28px; color:var(--accent); margin:0 0 10px;">Переводчик</p>
+        <p style="font-size:14px; line-height:1.6; color:rgba(255,255,255,.7); margin:0;">Постоянно работает в клинике — на консультации и во время лечения</p>
+      </div>
+      <div style="text-align:center; padding:28px 20px;">
+        <p style="font-family:'Noto Serif',serif; font-weight:500; font-size:28px; color:var(--accent); margin:0 0 10px;">Понятно и честно</p>
+        <p style="font-size:14px; line-height:1.6; color:rgba(255,255,255,.7); margin:0;">Объясняем план лечения и стоимость заранее, без сюрпризов</p>
+      </div>
+    </div>
+    <p style="font-size:13px; line-height:1.7; color:rgba(255,255,255,.5); margin:34px 0 0; text-align:center;">Как найти нас на корейских картах (Naver Map, Kakao Map): <span style="color:rgba(255,255,255,.85);">바로드림치과 안산점</span> · 안산 치과 · 고잔동</p>
+  </div>
+</section>
+
+<!-- ============ 2. BRAND STORY ============ -->
+<section id="story" data-reveal style="padding:120px 24px 90px; text-align:center; background:#fff;">
+  <div style="max-width:760px; margin:0 auto;">
+    <div style="font-family:'Noto Serif',serif; font-weight:400; font-size:clamp(100px,18vw,200px); line-height:1; color:var(--accent); opacity:.9;">作</div>
+    <p style="font-family:'Noto Sans',sans-serif; font-size:13px; letter-spacing:0.2em; color:#8A8A8A; margin:20px 0 30px;">Клиника, созданная врачом, который сам был пациентом</p>
+    <h2 style="font-family:'Noto Serif',serif; font-weight:400; font-size:clamp(20px,3vw,28px); line-height:1.7; letter-spacing:-0.01em; color:#1A1A1A; margin:0;">30 лет в роли пациента создали эту клинику.<br><span style="color:#8A8A8A;">Мы знаем страх перед стоматологическим креслом.<br>Поэтому мы работаем иначе.</span></h2>
+    <a href="#doctors" style="display:inline-block; margin-top:40px; font-size:14px; color:#1A1A1A; text-decoration:none; border-bottom:1px solid #1A1A1A; padding-bottom:3px;">Узнать больше о враче</a>
+  </div>
+</section>
+
+<!-- ============ 3. CARE CATEGORIES ============ -->
+<section id="care" data-reveal style="padding:110px 24px; background:var(--bg2);">
+  <div style="max-width:1200px; margin:0 auto;">
+    <div style="text-align:center; margin-bottom:56px;">
+      <p style="font-family:'Playfair Display',serif; font-style:italic; font-size:14px; color:var(--accent); margin:0 0 16px;">Treatment</p>
+      <h2 style="font-family:'Noto Serif',serif; font-weight:500; font-size:clamp(24px,3.6vw,36px); letter-spacing:-0.01em; color:#1A1A1A; margin:0;">Направления лечения</h2>
+    </div>
+    <div class="bd-care-grid" style="display:grid; grid-template-columns:repeat(2,1fr); gap:22px;">
+      <a href="implant-sedation.html" style="position:relative; display:block; height:320px; border-radius:4px; overflow:hidden; text-decoration:none; background:#111;">
+        <div class="ph" style="position:absolute; inset:0; overflow:hidden;"><img src="../images/ru/index-07.jpg" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; filter:contrast(1.02);" onerror="this.style.display='none';"></div>
+        <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,.05) 0%, rgba(0,0,0,.28) 45%, rgba(0,0,0,.8) 100%);"></div>
+        <div style="position:absolute; left:34px; bottom:30px; right:34px;">
+          <h3 style="font-family:'Noto Serif',serif; font-weight:500; font-size:24px; letter-spacing:-0.01em; color:#fff; margin:0 0 8px;">Импланты</h3>
+          <p style="font-size:13px; line-height:1.6; color:rgba(255,255,255,.88); margin:0;">Сеньоль · На всю челюсть · Навигационная · Немедленная нагрузка</p>
+        </div>
+      </a>
+      <a href="sedation.html" style="position:relative; display:block; height:320px; border-radius:4px; overflow:hidden; text-decoration:none; background:#111;">
+        <div class="ph" style="position:absolute; inset:0; overflow:hidden;"><img src="../images/ru/index-08.jpg" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; filter:contrast(1.02);" onerror="this.style.display='none';"></div>
+        <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,.05) 0%, rgba(0,0,0,.28) 45%, rgba(0,0,0,.8) 100%);"></div>
+        <div style="position:absolute; left:34px; bottom:30px; right:34px;">
+          <h3 style="font-family:'Noto Serif',serif; font-weight:500; font-size:24px; letter-spacing:-0.01em; color:#fff; margin:0 0 8px;">Седация</h3>
+          <p style="font-size:13px; line-height:1.6; color:rgba(255,255,255,.88); margin:0;">Кариес и каналы · Дёсны · Цифровое протезирование</p>
+        </div>
+      </a>
+      <a href="ortho.html" style="position:relative; display:block; height:320px; border-radius:4px; overflow:hidden; text-decoration:none; background:#111;">
+        <div class="ph" style="position:absolute; inset:0; overflow:hidden;"><img src="../images/ru/index-09.jpg" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; filter:contrast(1.02);" onerror="this.style.display='none';"></div>
+        <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,.05) 0%, rgba(0,0,0,.28) 45%, rgba(0,0,0,.8) 100%);"></div>
+        <div style="position:absolute; left:34px; bottom:30px; right:34px;">
+          <h3 style="font-family:'Noto Serif',serif; font-weight:500; font-size:24px; letter-spacing:-0.01em; color:#fff; margin:0 0 8px;">Ортодонтия</h3>
+          <p style="font-size:13px; line-height:1.6; color:rgba(255,255,255,.88); margin:0;">Взрослая · Детская · Прозрачные элайнеры</p>
+        </div>
+      </a>
+      <a href="natural-tooth.html" style="position:relative; display:block; height:320px; border-radius:4px; overflow:hidden; text-decoration:none; background:#111;">
+        <div class="ph" style="position:absolute; inset:0; overflow:hidden;"><img src="../images/ru/index-10.jpg" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; filter:contrast(1.02);" onerror="this.style.display='none';"></div>
+        <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,.05) 0%, rgba(0,0,0,.28) 45%, rgba(0,0,0,.8) 100%);"></div>
+        <div style="position:absolute; left:34px; bottom:30px; right:34px;">
+          <h3 style="font-family:'Noto Serif',serif; font-weight:500; font-size:24px; letter-spacing:-0.01em; color:#fff; margin:0 0 8px;">Сохранение зубов</h3>
+          <p style="font-size:13px; line-height:1.6; color:rgba(255,255,255,.88); margin:0;">Кариес · Каналы · Дёсны · Протезирование</p>
+        </div>
+      </a>
+      <a href="laminate.html" style="position:relative; display:block; height:320px; border-radius:4px; overflow:hidden; text-decoration:none; background:#111;">
+        <div class="ph" style="position:absolute; inset:0; overflow:hidden;"><img src="../images/ru/index-11.jpg" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; filter:contrast(1.02);" onerror="this.style.display='none';"></div>
+        <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,.05) 0%, rgba(0,0,0,.28) 45%, rgba(0,0,0,.8) 100%);"></div>
+        <div style="position:absolute; left:34px; bottom:30px; right:34px;">
+          <h3 style="font-family:'Noto Serif',serif; font-weight:500; font-size:24px; letter-spacing:-0.01em; color:#fff; margin:0 0 8px;">Эстетика</h3>
+          <p style="font-size:13px; line-height:1.6; color:rgba(255,255,255,.88); margin:0;">Виниры · Композитная реставрация</p>
+        </div>
+      </a>
+      <a href="tmj.html" style="position:relative; display:block; height:320px; border-radius:4px; overflow:hidden; text-decoration:none; background:#111;">
+        <div class="ph" style="position:absolute; inset:0; overflow:hidden;"><img src="../images/ru/index-12.jpg" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; filter:contrast(1.02);" onerror="this.style.display='none';"></div>
+        <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,.05) 0%, rgba(0,0,0,.28) 45%, rgba(0,0,0,.8) 100%);"></div>
+        <div style="position:absolute; left:34px; bottom:30px; right:34px;">
+          <h3 style="font-family:'Noto Serif',serif; font-weight:500; font-size:24px; letter-spacing:-0.01em; color:#fff; margin:0 0 8px;">ВНЧС</h3>
+          <p style="font-size:13px; line-height:1.6; color:rgba(255,255,255,.88); margin:0;">Физиотерапия · Шинотерапия · Мануальная терапия сустава</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4. DOCTORS ============ -->
+<section id="doctors" data-reveal style="padding:120px 24px; background:#fff;">
+  <div style="max-width:1200px; margin:0 auto;">
+    <div style="text-align:center; margin-bottom:60px;">
+      <p style="font-family:'Playfair Display',serif; font-style:italic; font-size:14px; color:var(--accent); margin:0 0 16px;">Medical Team</p>
+      <h2 style="font-family:'Noto Serif',serif; font-weight:500; font-size:clamp(24px,3.6vw,36px); letter-spacing:-0.01em; color:#1A1A1A; margin:0;">Три врача, одна команда</h2>
+    </div>
+    <div class="bd-doctors-grid" style="display:grid; grid-template-columns:repeat(3,1fr); gap:36px;">
+      <div>
+        <img src="https://res.cloudinary.com/rjoebmnd/image/upload/v1788230870/barodream-ansan/doctors/uy3ehllnhz6icl5dan3b.jpg" alt="Хан Джи Сан" style="width:100%; height:400px; border-radius:4px; object-fit:cover;">
+        <p style="font-family:'Playfair Display',serif; font-style:italic; font-size:17px; color:#1A1A1A; margin:26px 0 0;">«Буду общаться на языке, понятном пациенту.»</p>
+        <h3 style="font-family:'Noto Serif',serif; font-weight:500; font-size:21px; letter-spacing:-0.01em; color:#1A1A1A; margin:16px 0 6px;">Хан Джи Сан <span style="font-size:14px; color:#8A8A8A; font-weight:400;">главный врач</span></h3>
+        <p style="font-size:14px; line-height:1.6; color:#4A4A4A; margin:0;">Более 30 лет я был пациентом стоматолога.</p>
+        <a href="doctors.html#han" style="display:inline-block; margin-top:18px; font-size:13px; color:#1A1A1A; text-decoration:none; border-bottom:1px solid #1A1A1A; padding-bottom:2px;">Подробнее</a>
+      </div>
+      <div>
+        <img src="https://res.cloudinary.com/rjoebmnd/image/upload/v1788230852/barodream-ansan/doctors/liblymnfh2x0v8vzgstj.jpg" alt="Ким Джин Хи" style="width:100%; height:400px; border-radius:4px; object-fit:cover;">
+        <p style="font-family:'Playfair Display',serif; font-style:italic; font-size:17px; color:#1A1A1A; margin:26px 0 0;">«Лечу так, чтобы служило долго и выглядело как ваш собственный зуб.»</p>
+        <h3 style="font-family:'Noto Serif',serif; font-weight:500; font-size:21px; letter-spacing:-0.01em; color:#1A1A1A; margin:16px 0 6px;">Ким Джин Хи <span style="font-size:14px; color:#8A8A8A; font-weight:400;">главный врач</span></h3>
+        <p style="font-size:14px; line-height:1.6; color:#4A4A4A; margin:0;">Специалист интегративной стоматологии</p>
+        <a href="doctors.html#kim" style="display:inline-block; margin-top:18px; font-size:13px; color:#1A1A1A; text-decoration:none; border-bottom:1px solid #1A1A1A; padding-bottom:2px;">Подробнее</a>
+      </div>
+      <div>
+        <img src="https://res.cloudinary.com/rjoebmnd/image/upload/v1788411004/barodream-ansan/doctors/ikcekly9zkvatrqittnk.jpg" alt="Сок Джи Вон" style="width:100%; height:400px; border-radius:4px; object-fit:cover;">
+        <p style="font-family:'Playfair Display',serif; font-style:italic; font-size:17px; color:#1A1A1A; margin:26px 0 0;">«Выравниваю кривые зубы правильно.»</p>
+        <h3 style="font-family:'Noto Serif',serif; font-weight:500; font-size:21px; letter-spacing:-0.01em; color:#1A1A1A; margin:16px 0 6px;">Сок Джи Вон <span style="font-size:14px; color:#8A8A8A; font-weight:400;">главный ортодонт</span></h3>
+        <p style="font-size:14px; line-height:1.6; color:#4A4A4A; margin:0;">Специалист интегративной стоматологии · Ортодонтия</p>
+        <a href="doctors.html#seok" style="display:inline-block; margin-top:18px; font-size:13px; color:#1A1A1A; text-decoration:none; border-bottom:1px solid #1A1A1A; padding-bottom:2px;">Подробнее</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5. LOCATION ============ -->
+<section id="location" data-reveal style="padding:110px 24px; background:var(--bg2);">
+  <div style="max-width:1200px; margin:0 auto;">
+    <div style="text-align:center; margin-bottom:56px;">
+      <p style="font-family:'Playfair Display',serif; font-style:italic; font-size:14px; color:var(--accent); margin:0 0 16px;">Location</p>
+      <h2 style="font-family:'Noto Serif',serif; font-weight:500; font-size:clamp(24px,3.6vw,36px); letter-spacing:-0.01em; color:#1A1A1A; margin:0;">Контакты и как добраться</h2>
+    </div>
+    <div class="bd-loc-grid" style="display:grid; grid-template-columns:1.3fr 1fr; gap:36px; align-items:stretch;">
+      <div style="width:100%; height:100%; min-height:340px; border-radius:6px; overflow:hidden;"><iframe src="https://www.google.com/maps/embed?pb=!1m5!3m3!1m2!1s0x357b6f1b0470415b%3A0xcd015a093474f6b5!2z67CU66Gc65Oc66a87LmY6rO87J2Y7JuQ!5e0!3m2!1sko!2skr!4v1787894207333!5m2!1sko!2skr" title="Карта: Barodream Dental Ansan (바로드림치과 안산점)" loading="lazy" referrerpolicy="no-referrer-when-downgrade" style="border:0; width:100%; height:100%; min-height:340px;" allowfullscreen></iframe></div>
+      <div style="background:#fff; border:1px solid var(--line); border-radius:6px; padding:38px;">
+        <h3 style="font-family:'Noto Serif',serif; font-weight:500; font-size:20px; letter-spacing:-0.01em; color:#1A1A1A; margin:0 0 8px;">Стоматология Barodream, филиал Ансан</h3>
+        <p style="font-size:15px; line-height:1.7; color:#4A4A4A; margin:0 0 26px;">경기 안산시 단원구 고잔로 108 대동조이월드 405호 4층(롯데시네마 센트럴락 4층) (здание LOTTE CINEMA, 4 этаж)<br><span style="color:#8A8A8A; font-size:13px;">5 минут пешком от станции Ансан-Чунан (안산중앙역)</span></p>
+        <p style="font-size:13px; line-height:1.7; color:#4A4A4A; margin:-10px 0 22px;">Стоматология в Ансане (안산 치과) с русским переводчиком: импланты (임플란트), ортодонтия (교정), лечение с седацией (수면치료), лечение кариеса, каналов и дёсен. Клиника находится в Коджан-доне (고잔동), район Танвон-гу (단원구), рядом со станцией Ансан-Чунан (안산중앙역). Принимаем пациентов из всех районов Ансана, в том числе из Вонгок-дона (원곡동), Сонбу-дона (선부동), Чходжи-дона (초지동) и Ва-дона (와동).</p>
+        <div style="height:1px; background:var(--line); margin:0 0 22px;"></div>
+        <table style="width:100%; border-collapse:collapse; font-size:14px; color:#4A4A4A;">
+          <tbody>
+            <tr><td style="padding:7px 0; color:#1A1A1A; font-weight:500;">Пн, Вт, Чт, Пт</td><td style="padding:7px 0; text-align:right;">09:30 – 18:30</td></tr>
+            <tr><td style="padding:7px 0; color:#1A1A1A; font-weight:500;">Среда</td><td style="padding:7px 0; text-align:right;">09:30 – 21:00</td></tr>
+            <tr><td style="padding:7px 0; color:#1A1A1A; font-weight:500;">Суббота</td><td style="padding:7px 0; text-align:right;">09:30 – 13:30</td></tr>
+            <tr><td style="padding:7px 0; color:#1A1A1A; font-weight:500;">Обеденный перерыв</td><td style="padding:7px 0; text-align:right;">13:00 – 14:00 (кроме субботы)</td></tr>
+            <tr><td style="padding:7px 0; color:#8A8A8A;">Воскресенье, праздники</td><td style="padding:7px 0; text-align:right; color:#8A8A8A;">Выходной</td></tr>
+          </tbody>
+        </table>
+        <p style="font-size:12px; line-height:1.6; color:var(--accent); margin:14px 0 0;">✓ Переводчик работает в клинике постоянно</p>
+        <div style="display:flex; gap:10px; margin-top:18px;">
+          <a href="tel:031-402-2282" style="flex:1; text-align:center; padding:13px 0; background:#1A1A1A; color:#fff; font-size:13px; font-weight:500; text-decoration:none; border-radius:2px;">Позвонить</a>
+          <a href="#" style="flex:1; text-align:center; padding:13px 0; background:#FEE500; color:#3A1D1D; font-size:13px; font-weight:600; text-decoration:none; border-radius:2px;">KakaoTalk</a>
+        </div>
+        <a href="https://www.facebook.com/barodreamdc/" target="_blank" rel="noopener" style="display:flex; align-items:center; justify-content:center; margin-top:10px; padding:13px 0; background:#1877F2; color:#fff; font-size:13px; font-weight:500; text-decoration:none; border-radius:2px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-2px; margin-right:6px;"><path d="M22 12.06C22 6.53 17.52 2 12 2S2 6.53 2 12.06c0 5 3.66 9.13 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.23.2 2.23.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.45 2.91h-2.33V22c4.78-.81 8.44-4.95 8.44-9.94z"/></svg>Мы в Facebook: Бародрим (@barodreamdc)</a>
+        <p style="font-size:13px; color:#4A4A4A; margin:14px 0 0; text-align:center;">Переводчик Ирина: <a href="tel:010-3213-3105" style="color:var(--accent); font-weight:600; text-decoration:none;">010-3213-3105</a></p>
+        <p style="font-size:12px; line-height:1.6; color:#8A8A8A; margin:12px 0 0; text-align:center;">Для такси/навигатора (показать водителю):<br><span style="color:#4A4A4A;">경기도 안산시 단원구 고잔로 108, 중앙동 롯데시네마 4층</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6. FOOTER ============ -->
+<footer style="background:#1A1A1A; color:#fff; padding:70px 24px 44px;">
+  <div style="max-width:1200px; margin:0 auto;">
+    <div class="bd-footer-grid" style="display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:36px; padding-bottom:48px; border-bottom:1px solid rgba(255,255,255,.14);">
+      <div>
+        <div style="display:flex; align-items:flex-end; gap:12px;">
+          <span style="font-family:'Noto Serif',serif; font-weight:600; font-size:22px; letter-spacing:-0.01em; color:#fff;">Barodream Dental Ansan (Бародрим)</span>
+          <span style="font-family:'Noto Serif',serif; font-size:24px; color:var(--accent); line-height:1;">作</span>
+        </div>
+        <p style="font-family:'Noto Sans',sans-serif; font-size:15px; line-height:1.7; color:rgba(255,255,255,.66); margin:22px 0 0; max-width:320px;">30 лет в роли пациента создали эту клинику.</p>
+        <p style="font-family:'Playfair Display',serif; font-style:italic; font-size:14px; color:rgba(255,255,255,.5); margin:20px 0 0;">Хан Джи Сан · Ким Джин Хи — главные врачи</p>
+      </div>
+      <div>
+        <p style="font-size:12px; letter-spacing:0.1em; color:rgba(255,255,255,.4); margin:0 0 18px;">SITEMAP</p>
+        <div style="display:flex; flex-direction:column; gap:11px;">
+          <a href="implant-sedation.html" style="font-size:13px; color:rgba(255,255,255,.8); text-decoration:none;">Импланты</a>
+          <a href="sedation.html" style="font-size:13px; color:rgba(255,255,255,.8); text-decoration:none;">Седация</a>
+          <a href="ortho.html" style="font-size:13px; color:rgba(255,255,255,.8); text-decoration:none;">Ортодонтия</a>
+          <a href="doctors.html" style="font-size:13px; color:rgba(255,255,255,.8); text-decoration:none;">Врачи</a>
+          <a href="#location" style="font-size:13px; color:rgba(255,255,255,.8); text-decoration:none;">Контакты</a>
+        </div>
+      </div>
+      <div>
+        <p style="font-size:12px; letter-spacing:0.1em; color:rgba(255,255,255,.4); margin:0 0 18px;">CONTACT</p>
+        <p style="font-size:13px; line-height:1.9; color:rgba(255,255,255,.8); margin:0;">경기 안산시 단원구 고잔로 108<br>대동조이월드 405호 4층(롯데시네마 센트럴락 4층) (здание LOTTE CINEMA, 4 этаж)<br>Тел. <a href="tel:031-402-2282" style="color:inherit; text-decoration:none;">031-402-2282</a></p>
+      </div>
+    </div>
+    <p style="font-size:11px; line-height:1.8; color:rgba(255,255,255,.4); margin:24px 0 0;">Barodream Dental Clinic · Директор: Ким Джин Хи · Рег. № 361-95-01399<br>경기 안산시 단원구 고잔로 108 대동조이월드 405호 4층(롯데시네마 센트럴락 4층) (здание LOTTE CINEMA, 4 этаж) · Тел. 031-402-2282<br>Стоматология в Ансане (안산 치과) · 안산 러시아어 통역 치과<br>Часть изображений на сайте создана с помощью ИИ и носит иллюстративный характер; на них не показаны реальные пациенты или помещения клиники.<br>© 2026 Barodream Dental Clinic. All rights reserved.</p>
+  </div>
+</footer>
+
+</div>
+
+<script>
+  (function(){
+    var els = Array.prototype.slice.call(document.querySelectorAll('[data-reveal]'));
+    if('IntersectionObserver' in window){
+      els.forEach(function(el){ el.classList.add('bd-pre'); });
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('is-in'); io.unobserve(e.target); } });
+      }, { threshold:0.12 });
+      els.forEach(function(el){ io.observe(el); });
+    }
+  })();
+</script>
+<script>
+  (function(){
+    var h = document.querySelector('header'), nav = document.querySelector('.bd-nav');
+    if(!h || !nav || document.querySelector('.bd-burger')) return;
+    var b = document.createElement('button');
+    b.className = 'bd-burger'; b.type = 'button'; b.setAttribute('aria-label','Меню'); b.setAttribute('aria-expanded','false'); b.innerHTML = '<span></span>';
+    h.appendChild(b);
+    var p = document.createElement('nav'); p.className = 'bd-mpanel'; p.setAttribute('aria-label','Меню');
+    function add(t, subs){
+      var g = document.createElement('div'); g.className = 'g';
+      var a = document.createElement('a'); a.className = 't'; a.href = t.getAttribute('href'); a.textContent = t.textContent; g.appendChild(a);
+      Array.prototype.forEach.call(subs || [], function(s){ var x = document.createElement('a'); x.className = 's'; x.href = s.getAttribute('href'); x.textContent = s.textContent; g.appendChild(x); });
+      p.appendChild(g);
+    }
+    Array.prototype.forEach.call(nav.children, function(c){
+      if(c.tagName === 'A'){ add(c); }
+      else { var t = c.querySelector('.bd-nav-top'); if(t) add(t, c.querySelectorAll('.bd-dropdown a')); }
+    });
+    h.parentNode.insertBefore(p, h.nextSibling);
+    function close(){ p.classList.remove('open'); b.setAttribute('aria-expanded','false'); }
+    b.addEventListener('click', function(){ var o = p.classList.toggle('open'); b.setAttribute('aria-expanded', o ? 'true' : 'false'); });
+    document.addEventListener('keydown', function(e){ if(e.key === 'Escape') close(); });
+    window.addEventListener('resize', function(){ if(window.innerWidth > 1000) close(); });
+  })();
+</script>
+</body>
+</html>
