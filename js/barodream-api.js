@@ -111,7 +111,7 @@
     var hasEmail = !!(W3KEY && W3KEY.indexOf('여기에') === -1);  // 실제 키가 채워졌을 때만 이메일 전송
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      if (!hasEmail && !READY) { alert('상담 접수 준비 중입니다. 잠시 후 다시 시도하거나 전화(031-402-2282)로 문의해 주세요.'); return; }
+      if (!READY) { alert('상담 접수 준비 중입니다. 잠시 후 다시 시도하거나 전화(031-402-2282)로 문의해 주세요.'); return; }
       var fd = new FormData(form);
       var name = fd.get('name'), phone = fd.get('phone');
       var treatment = fd.get('treatment_type') || '', message = fd.get('message') || '';
@@ -119,10 +119,11 @@
       var btn = form.querySelector('[type="submit"]');
       if (btn) { btn.disabled = true; btn.dataset.label = btn.textContent; btn.textContent = '접수 중...'; }
 
-      var tasks = [];
+      var emailTask = Promise.resolve(false);
+      var saveTask = Promise.resolve(false);
       // (a) 이메일 — Web3Forms (수신 메일은 web3forms 대시보드에서 access_key에 연결)
       if (hasEmail) {
-        tasks.push(fetch('https://api.web3forms.com/submit', {
+        emailTask = fetch('https://api.web3forms.com/submit', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
           body: JSON.stringify({
@@ -136,11 +137,14 @@
             개인정보동의: agree ? '동의' : '미동의',
             접수페이지: location.pathname
           })
-        }).then(function (r) { return r.ok; }).catch(function () { return false; }));
+        }).then(function (r) {
+          if (!r.ok) return false;
+          return r.json().then(function (body) { return body.success === true; });
+        }).catch(function () { return false; });
       }
       // (b) DB — Supabase consultations
       if (READY) {
-        tasks.push(fetch(REST + 'consultations', {
+        saveTask = fetch(REST + 'consultations', {
           method: 'POST',
           headers: Object.assign({ 'Content-Type': 'application/json', Prefer: 'return=minimal' }, HEADERS),
           body: JSON.stringify({
@@ -148,13 +152,14 @@
             treatment_type: treatment || null, message: message || null,
             agree_to_terms: agree, source_page: location.pathname
           })
-        }).then(function (r) { return r.ok; }).catch(function () { return false; }));
+        }).then(function (r) { return r.ok; }).catch(function () { return false; });
       }
 
-      Promise.all(tasks).then(function (results) {
-        var ok = results.some(function (x) { return x; });  // 이메일·DB 중 하나라도 성공하면 접수 완료
-        if (ok) { alert('상담 신청이 접수되었습니다. 확인 후 연락드리겠습니다.'); form.reset(); }
-        else { alert('접수 중 문제가 발생했습니다. 전화(031-402-2282)로 문의해 주세요.'); }
+      Promise.all([saveTask, emailTask]).then(function (results) {
+        var saved = results[0], emailSent = results[1];
+        if (saved && !emailSent) console.warn('EMAIL_NOTIFICATION_FAILED');
+        if (saved) { alert('상담 신청이 접수되었습니다. 확인 후 연락드리겠습니다.'); form.reset(); }
+        else { alert('접수되지 않았습니다. 다시 시도하거나 전화(031-402-2282)로 문의해 주세요.'); }
       }).finally(function () {
         if (btn) { btn.disabled = false; btn.textContent = btn.dataset.label || '상담 신청'; }
       });
