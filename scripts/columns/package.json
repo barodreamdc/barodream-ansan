@@ -1,0 +1,9 @@
+{
+  "name": "barodream-column-renderer",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "sanitize-html": "2.18.0"
+  }
+}
