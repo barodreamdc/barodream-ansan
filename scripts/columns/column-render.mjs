@@ -15,7 +15,7 @@ export function absoluteImage(src) {
   try { const url = new URL(src, ORIGIN + '/'); return ['http:','https:'].includes(url.protocol) ? url.href : ''; } catch { return ''; }
 }
 export function renderColumn(row, shell, css, preview = false) {
-  if (preview) shell = shell.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, '').replace('</head>', '<style>[data-reveal]{opacity:1!important;transform:none!important}</style></head>');
+  if (preview) shell = shell.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, '').replace(/<noscript\b[^>]*>[\s\S]*?<\/noscript>/gi, '').replace('</head>', '<style>[data-reveal]{opacity:1!important;transform:none!important}</style></head>');
   const canonical = `${ORIGIN}/${columnPath(row.slug || '')}`;
   const title = row.seo_title || `${row.title || '칼럼'} · 칼럼 · 바로드림치과 안산점`;
   const description = row.meta_description || row.summary || row.title || '';

@@ -427,7 +427,7 @@ async function injectBeforeAfter() {
   await injectDoctors();
   await injectFaqs();
   await injectGalleries();
-  await injectSeo(); // seed_seo가 현재 head와 일치 → 편집분만 반영(회귀 없음, dry-run 0/21 확인)
+  // await injectSeo(); // seed_seo가 현재 head와 일치 → 편집분만 반영(회귀 없음, dry-run 0/21 확인)
   await injectTreatments(); // sync_treatments_hero.sql 실행 완료 → 활성화(편집분만 반영)
 })().catch((e) => {
   console.error(e);
