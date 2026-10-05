@@ -7,19 +7,16 @@ import fs from "node:fs";
 import path from "node:path";
 
 const OUT = "dictionary";
-const GA = `<!-- Google Analytics (GA4) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-WMKC3PRD3W"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag("js", new Date());
-  if (location.hostname === "barodreamdental.kr") { gtag("config", "G-WMKC3PRD3W"); }
-</script>`;
-
 // 본사이트 전체 헤더/모바일메뉴/푸터/JS를 실제 페이지에서 추출 → /dictionary/ 기준으로 경로 보정
-const REF = fs.readFileSync("caries.html", "utf-8");
+const REF = fs.readFileSync("caries.html", "utf-8").replace(/\r\n/g, "\n");
 const cut = (s, a, b) => { const i = s.indexOf(a); const j = s.indexOf(b, i + a.length); return s.slice(i, j + b.length); };
+// Preserve the current site's tracking when regenerating dictionary pages.
+const GA = cut(REF, "<!-- Google Tag Manager -->", "<!-- End Google Tag Manager -->") + "\n";
+const NOSCRIPT = cut(REF, "<!-- Google Tag Manager (noscript) -->", "<!-- End Google Tag Manager (noscript) -->");
 function fixPaths(s) {
+  // Shared navigation is copied from root-level pages; resolve its dictionary
+  // link locally before prefixing root-level HTML links with ../.
+  s = s.replace(/href="dictionary\/index\.html"/g, 'href="/dictionary/index.html"');
   s = s.replace(/href="([a-zA-Z][a-zA-Z0-9_\-]*\.html)/g, 'href="../$1');
   s = s.replace(/href="\.\.\/dictionary\/index\.html"/g, 'href="index.html"');
   return s;
@@ -269,6 +266,7 @@ ${GA}
 ${MMCSS}
 </head>
 <body>
+${NOSCRIPT}
 <div style="max-width:100vw;">
 ${HEADER}
 ${MMENU}`;
