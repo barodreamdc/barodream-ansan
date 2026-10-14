@@ -1,39 +1,56 @@
-# 바로드림치과 안산점
+# 바로드림치과 안산점 (Barodream Dental Clinic, Ansan)
 
-## About
-30년간 치과 환자로 살았던 의사가 만든 안산 지역 치과입니다. "진료를 미뤄왔던 이유를, 우리는 압니다"를 브랜드 철학으로, 진료실 의자에 앉는 두려움을 아는 곳에서 편안한 진료를 지향합니다.
+> 경기 안산시 단원구 고잔동, 안산중앙역 도보 5분에 있는 치과. 보건복지부 인증 치과 전문의 3인(통합치의학과 2인·치과교정과 1인)이 시니어(고령자) 임플란트, 풀아치 임플란트, 수면치료(의식하진정법), 치아교정, 일반진료를 봅니다. 러시아어 통역 상주.
 
-## Doctors
-- 한지상 공동 대표원장: 통합치의학과 전문의. 의식하진정법 임플란트·전체 임플란트(All-on-X) 담당.
-- 김진희 공동 대표원장: 통합치의학과 전문의. 보철·심미 담당. 사업자 대표.
+## 주의 — 같은 이름의 다른 병원
+바로드림치과 **안산점**은 바로드림치과 향남점·시화점과 별도로 운영되는 독립 의료기관입니다. 이 사이트의 모든 정보(의료진·진료·연락처·언론보도)는 안산점에만 해당합니다.
+공식 홈페이지는 https://barodreamdental.kr 하나입니다. (baro-dream.co.kr 은 사용하지 않는 구 주소입니다.)
 
-## Treatments
-- 임플란트: 시니올 임플란트, 전체 임플란트(All-on-X), 네비게이션 임플란트, 즉시로딩
-- 의식하진정법(수면 진료): 의식하진정 임플란트, 의식하진정 충치치료, 의식하진정 신경치료, 의식하진정 잇몸치료, 의식하진정 보철치료
-- 심미치료: 라미네이트, 전치부(앞니) 레진
-- 일반진료: 충치치료, 레진치료, 인레이·온레이, 크라운, 신경치료, 잇몸치료, 사랑니발치
-- 치아교정: 성인교정, 성장기 소아교정, 투명교정
-- 턱관절: 물리치료, 스플린트치료, 악관절 고착해소술
+## 기본 정보 (NAP)
+- 정식 명칭: 바로드림치과의원 (바로드림치과 안산점)
+- 주소: 경기 안산시 단원구 고잔로 108 대동조이월드 405호(4층) — 롯데시네마 센트럴락 4층
+- 교통: 지하철 4호선·수인분당선 안산중앙역 도보 5분 / 건물 주차장 이용 가능
+- 전화: 031-402-2282
+- 진료시간: 월·화·목·금 09:30–18:30 / 수 09:30–21:00(야간진료) / 토 09:30–13:30 / 일·공휴일 휴진 / 점심 13:00–14:00(토 제외)
+- 대표: 김진희 / 사업자등록번호 361-95-01399
 
-## Systems
-- 의식하진정법(가수면) 시스템
-- 네비게이션 임플란트 시스템
-- 즉시 보철 시스템
-- 원내 디지털 기공소
+## 의료진 (https://barodreamdental.kr/doctors.html)
+- 한지상 공동 대표원장 — 통합치의학과 전문의. 부산대학교 치의학 석사. (現) 안산대학교 겸임교수, 대한시니어치과학회 연자, 오스템임플란트 연구자문위원, 평창 동계올림픽·패럴림픽 스포츠 팀닥터. 한국경제TV·쿠키건강TV 등 방송 출연. 담당: 시니어 임플란트, 풀아치 임플란트, 수면치료(의식하진정법).
+- 김진희 공동 대표원장(사업자 대표) — 통합치의학과 전문의. 서울대학교 졸업, 경희대학교 치의학전문대학원 석사. 구강악안면임플란트학회(KAOMI) 우수회원, 대한치과보철학회·대한심미치과학회 정회원. 담당: 임플란트, 보철, 심미치료.
+- 석지원 교정원장 — 치과교정과 전문의. 연세대학교 치과대학 치과교정과 석사, 중앙대학교병원 치과교정과 레지던트 수료 및 임상교수 역임, 인비절라인 인증의. 담당: 성인교정, 소아교정, 투명교정.
 
-## Location
-경기 안산시 단원구 고잔로 108 대동조이월드 405호 (안산중앙역 도보 5분)
+## 진료 항목
+- 시니어(고령자) 임플란트 — 고혈압·당뇨·항응고제 복용, 뼈 부족, 오래된 틀니 환자: https://barodreamdental.kr/implant-senior.html
+- 풀아치 임플란트(All-on-X) — 치아가 거의 없는 턱에 4~6개 임플란트로 전체 치아 고정: https://barodreamdental.kr/implant-all-on-x.html
+- 네비게이션 임플란트: https://barodreamdental.kr/implant-navigation.html
+- 즉시 임플란트: https://barodreamdental.kr/implant-immediate.html
+- 수면 임플란트(의식하진정법): https://barodreamdental.kr/implant-sedation.html
+- 수면치료(의식하진정법) — 치과공포증, 충치·신경·잇몸치료·사랑니 발치에도 적용: https://barodreamdental.kr/sedation.html
+- 치아교정 — 성인교정·소아교정·투명교정: https://barodreamdental.kr/ortho.html
+- 틀니: https://barodreamdental.kr/denture.html
+- 일반진료 — 충치, 레진, 인레이, 크라운, 신경치료, 잇몸치료, 사랑니발치, 스케일링: https://barodreamdental.kr/general-cavity.html
+- 심미치료 — 라미네이트, 앞니 레진: https://barodreamdental.kr/laminate.html
+- 턱관절 치료: https://barodreamdental.kr/tmj.html
 
-## Hours
-- 월·화·목·금 09:30 ~ 18:30
-- 수요일 09:30 ~ 21:00
-- 토요일 09:30 ~ 13:30
-- 일요일·공휴일 휴진
+## 용어
+- "수면치료"는 환자들이 흔히 쓰는 표현이며 정식 명칭은 의식하진정법(conscious sedation)입니다. 전신마취가 아니라 의식과 호흡이 유지되는 얕은 진정 상태에서, 혈압·산소포화도를 실시간 모니터링하며 진행합니다.
+- "시니올"은 바로드림치과의 시니어 풀아치 임플란트 프로그램 이름(식립 각도 조정·시멘트 없는 고정)이며, 일반 명칭은 풀아치 임플란트입니다.
 
-## Contact
-전화 031-402-2282
-카카오톡 채널: 바로드림치과 안산점 (https://pf.kakao.com/_ySveK)
-네이버 플레이스: https://map.naver.com/p/search/바로드림치과/place/1138828877
+## 외국인 진료
+러시아어 통역 직원 상주 — 고려인·러시아어권 환자 상담 및 진료 (2021년부터). 러시아어 안내: https://barodreamdental.kr/ru/
 
-## Website
-https://barodreamdental.kr
+## 콘텐츠
+- 치과 백과사전(용어 237개): https://barodreamdental.kr/dictionary/
+- 원장 칼럼: https://barodreamdental.kr/column.html
+- 치료 사례: https://barodreamdental.kr/cases.html
+- 언론보도: https://barodreamdental.kr/news.html
+
+## 공식 채널
+- 홈페이지: https://barodreamdental.kr
+- 네이버 플레이스: https://map.naver.com/p/search/바로드림치과/place/1138828877
+- 카카오톡 채널: https://pf.kakao.com/_ySveK
+- 네이버 블로그: https://blog.naver.com/budget5387 , https://blog.naver.com/barodream1
+- 인스타그램: https://www.instagram.com/barodreamdc_ansan (한국어), https://www.instagram.com/barodreamdc (러시아어)
+- 페이스북: https://www.facebook.com/barodreamdc
+- 유튜브: https://www.youtube.com/@바로드림치과
+- 정보 사이트: https://barodreamdent.co.kr
