@@ -77,6 +77,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .bd-nav-item{ position:relative; display:flex; align-items:center; }
   .bd-nav .bd-nav-top{ font-size:15px; color:#1A1A1A; text-decoration:none; letter-spacing:-0.01em; }
   .bd-nav .bd-nav-top:hover{ color:var(--accent); }
+  @media (max-width:1160px){ .bd-nav .bd-nav-top[hreflang="ru"]{ display:none; } }
   .bd-dropdown{ position:absolute; top:100%; left:50%; transform:translateX(-50%) translateY(6px);
     min-width:210px; background:#fff; border:1px solid var(--line); border-radius:6px;
     box-shadow:0 14px 30px rgba(26,26,26,.12); padding:8px; display:flex; flex-direction:column;
@@ -223,6 +224,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <a href="doctors.html" class="bd-nav-top">의료진소개</a>
     <a href="gojan-dental.html" class="bd-nav-top">오시는 길</a>
+    <a href="ru/index.html" class="bd-nav-top" hreflang="ru" lang="ru">Русский</a>
   </nav>
   <button class="bd-mm-toggle" aria-label="메뉴 열기" aria-expanded="false" aria-controls="bd-mobile-menu"><span></span><span></span><span></span></button>
 </header>
@@ -295,6 +297,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </li>
       <li><a class="bd-mm-link" href="doctors.html">의료진소개</a></li>
       <li><a class="bd-mm-link" href="gojan-dental.html">오시는 길</a></li>
+      <li><a class="bd-mm-link" href="ru/index.html" hreflang="ru" lang="ru">Русский</a></li>
     </ul>
   </nav>
 </div>
