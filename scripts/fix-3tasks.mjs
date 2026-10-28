@@ -23,12 +23,12 @@ for (const f of t1files) {
 // ── Task 2: column-01 글쓴이 변경 + 검수줄 삭제 ──────────────
 let c = fs.readFileSync("column-01.html", "utf-8");
 const c0 = c;
-c = c.replace("<strong>한지상 대표원장</strong>", "<strong>한지상·김진희 대표원장</strong>");
+c = c.replace("<strong>한지상 원장</strong>", "<strong>김진희 대표원장·한지상 원장</strong>");
 // 검수 <p> 한 줄 통째 삭제(앞 개행 포함)
 c = c.replace(/[ \t]*<p style="[^"]*">검수: \[교체\] 원장 검수 후 이름·일자 입력<\/p>\r?\n/, "");
 fs.writeFileSync("column-01.html", c);
 const t2 = {
-  name변경: c.includes("한지상·김진희 대표원장"),
+  name변경: c.includes("김진희 대표원장·한지상 원장"),
   검수삭제: !c.includes("검수: [교체]"),
   changed: c !== c0,
 };
