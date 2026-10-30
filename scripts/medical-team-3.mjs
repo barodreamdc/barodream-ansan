@@ -6,7 +6,7 @@ const card = (img, alt, quote, name, title, desc) =>
 
 const kim = card("dr.kim.jpg", "김진희 대표원장", "보이지 않는 정확함을 만듭니다.", "김진희", "대표원장", "통합치의학과 전문의");
 const han = card("dr.han.jpg", "한지상 원장", "30년을 환자로 살았습니다.", "한지상", "원장", "통합치의학과 전문의");
-const seok = card("dr.seok.jpg", "석지원 교정원장", "삐뚤어진 치아를 바르게 교정합니다.", "석지원", "교정원장", "통합치의학과 전문의 · 치아교정");
+const seok = card("dr.seok.jpg", "석지원 원장 (교정 담당)", "삐뚤어진 치아를 바르게 교정합니다.", "석지원", "원장 · 교정 담당", "통합치의학과 전문의 · 치아교정");
 
 const NL = "\r\n";
 const newGrid =
