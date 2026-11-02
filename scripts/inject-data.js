@@ -100,12 +100,8 @@ function docMainCard(d, fallbackImg) {
   const quote = d.personal_message
     ? `\n        <p style="font-family:'Playfair Display',serif; font-style:italic; font-size:19px; color:#1A1A1A; margin:30px 0 0;">&ldquo;${esc(d.personal_message)}&rdquo;</p>`
     : "";
-  // 직책(전문의 등)은 항상 표시, 한 줄 소개가 있으면 그 아래 한 줄 추가
-  const intro = d.short_intro && d.short_intro.trim() ? d.short_intro.trim() : "";
-  const descMain = esc([d.title, (d.specialties || []).join(", ")].filter(Boolean).join(" · "));
-  const desc = intro
-    ? `${descMain || esc(intro)}${descMain ? `</p>\n        <p style="font-size:14px; line-height:1.6; color:#6A6A6A; margin:4px 0 0;">${esc(intro)}` : ""}`
-    : descMain;
+  // 메인 카드: 직책(전문의 등)만 표시. 한 줄 소개(short_intro)는 의료진 소개 페이지(doctors.html)에서만 노출
+  const desc = esc([d.title, (d.specialties || []).join(", ")].filter(Boolean).join(" · "));
   const h3margin = quote ? "20px 0 6px" : "30px 0 6px";
   return `      <div>
         ${imgTag}${quote}
