@@ -1,5 +1,6 @@
 import sanitizeHtml from 'sanitize-html';
 import { COLUMN_HTML_POLICY } from './column-html-policy.mjs';
+import { cleanTitle, relatedBlock } from './related.mjs';
 export const ORIGIN = 'https://barodreamdental.kr';
 export const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 export const columnPath = slug => slug === 'crown-bridge-caries-front-implant' ? 'column-01.html' : `column-${slug}.html`;
@@ -14,7 +15,8 @@ export function absoluteImage(src) {
   if (!src) return '';
   try { const url = new URL(src, ORIGIN + '/'); return ['http:','https:'].includes(url.protocol) ? url.href : ''; } catch { return ''; }
 }
-export function renderColumn(row, shell, css, preview = false) {
+export function renderColumn(row, shell, css, preview = false, all = []) {
+  row = { ...row, title: cleanTitle(row.title) };
   if (preview) shell = shell.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, '').replace(/<noscript\b[^>]*>[\s\S]*?<\/noscript>/gi, '').replace('</head>', '<style>[data-reveal]{opacity:1!important;transform:none!important}</style></head>');
   const canonical = `${ORIGIN}/${columnPath(row.slug || '')}`;
   const title = row.seo_title || `${row.title || '칼럼'} · 칼럼 · 바로드림치과 안산점`;
@@ -31,6 +33,6 @@ export function renderColumn(row, shell, css, preview = false) {
     if (tag.startsWith('</')) return --tableDepth === 0 ? `${tag}</div>` : tag;
     return tableDepth++ === 0 ? `<div class="column-table-scroll" role="region" aria-label="칼럼 표" tabindex="0">${tag}` : tag;
   });
-  const content = `<section style="background:#1a1a1a;color:white;padding:72px 24px;text-align:center"><p>${esc(row.category)} · ${esc((row.published_at || '').slice(0,10))}</p><h1 style="font-family:'Noto Serif KR',serif;font-size:clamp(26px,4vw,40px);line-height:1.4;max-width:900px;margin:20px auto;overflow-wrap:anywhere">${esc(row.title)}</h1><p style="max-width:720px;margin:20px auto;line-height:1.8">${esc(row.summary)}</p></section><article style="padding:56px 24px 100px"><div class="column-prose" style="max-width:720px;margin:auto">${image ? `<figure><img src="${esc(image)}" alt="${esc(row.thumbnail_alt || row.title)}">${row.thumbnail_caption ? `<figcaption>${esc(row.thumbnail_caption)}</figcaption>` : ''}</figure>` : ''}${body}</div></article>`;
+  const content = `<section style="background:#1a1a1a;color:white;padding:72px 24px;text-align:center"><p>${esc(row.category)} · ${esc((row.published_at || '').slice(0,10))}</p><h1 style="font-family:'Noto Serif KR',serif;font-size:clamp(26px,4vw,40px);line-height:1.4;max-width:900px;margin:20px auto;overflow-wrap:anywhere">${esc(row.title)}</h1><p style="max-width:720px;margin:20px auto;line-height:1.8">${esc(row.summary)}</p></section><article style="padding:56px 24px 100px"><div class="column-prose" style="max-width:720px;margin:auto">${image ? `<figure><img src="${esc(image)}" alt="${esc(row.thumbnail_alt || row.title)}">${row.thumbnail_caption ? `<figcaption>${esc(row.thumbnail_caption)}</figcaption>` : ''}</figure>` : ''}${body}</div>${relatedBlock(row, all, columnPath)}</article>`;
   return shell.replace('{{COLUMN_SEO}}', () => seo).replace('{{COLUMN_CONTENT}}', () => content);
 }
