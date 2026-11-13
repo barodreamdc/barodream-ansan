@@ -1,3 +1,4 @@
+import { formatColumnDate } from './columns/column-date.mjs';
 // 실행 위치: visitor 저장소 루트. 기존 HTML URL와 sitemap의 다른 항목은 보존.
 import fs from 'node:fs';
 import path from 'node:path';
@@ -18,7 +19,7 @@ export function publishColumns(rows, root = process.cwd()) {
   const current = published.map(row => columnPath(row.slug));
   const indexPath = path.join(root, 'column.html');
   let index = fs.readFileSync(indexPath, 'utf8');
-  const cards = published.map(row => `<a href="${esc(columnPath(row.slug))}" data-card style="display:block;text-decoration:none;border:1px solid var(--line);border-radius:6px;overflow:hidden">${row.thumbnail_url ? `<img src="${esc(absoluteImage(row.thumbnail_url))}" alt="${esc(row.thumbnail_alt || cleanTitle(row.title))}" style="width:100%;height:220px;object-fit:cover">` : ''}<div style="padding:28px"><p style="font-size:12px;color:var(--accent)">${esc(row.category)}</p><h2 style="font-size:22px;line-height:1.5;color:#1a1a1a">${esc(cleanTitle(row.title))}</h2><p style="color:#4a4a4a;line-height:1.8">${esc(row.summary)}</p><p style="color:#888;font-size:13px">${esc((row.published_at || '').slice(0,10))}</p></div></a>`).join('\n') || '<p>발행된 칼럼이 없습니다.</p>';
+  const cards = published.map(row => `<a href="${esc(columnPath(row.slug))}" data-card style="display:block;text-decoration:none;border:1px solid var(--line);border-radius:6px;overflow:hidden">${row.thumbnail_url ? `<img src="${esc(absoluteImage(row.thumbnail_url))}" alt="${esc(row.thumbnail_alt || cleanTitle(row.title))}" style="width:100%;height:220px;object-fit:cover">` : ''}<div style="padding:28px"><p style="font-size:12px;color:var(--accent)">${esc(row.category)}</p><h2 style="font-size:22px;line-height:1.5;color:#1a1a1a">${esc(cleanTitle(row.title))}</h2><p style="color:#4a4a4a;line-height:1.8">${esc(row.summary)}</p><p style="color:#888;font-size:13px">${esc(formatColumnDate(row.published_at))}</p></div></a>`).join('\n') || '<p>발행된 칼럼이 없습니다.</p>';
   if (!index.includes('<!-- COLUMNS:START -->')) {
     const start = index.indexOf('<div class="bd-cards2"');
     const close = index.indexOf('</section>', start);
